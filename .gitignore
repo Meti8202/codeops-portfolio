@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# secrets — never commit these
+.env
+*.key
+
+# build output and system files
+dist/
+.DS_Store
