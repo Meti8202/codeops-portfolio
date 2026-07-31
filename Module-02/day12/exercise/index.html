@@ -1,0 +1,167 @@
+<!-- Build: "Habesha Eatery" reservation page
+Starting from the provided skeleton, build a single accessible HTML page (CSS already supplied) that brings today's topics together.
+Your page must include:
+• A reservation form: name, email, tel, date, party-size (number), and a special-requests textarea — every field labelled and validated
+• A menu table with caption, column scope headers, and a price column in ETB
+• A media block: a dish image with real alt text and a map iframe with a title
+• Semantic landmarks (header / nav / main / footer) and a single h1
+• A <head> with a unique title and a meta description -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habesha Eatery - Bole</title>
+    <meta
+      name="description"
+      content="Habesha Eatery - Ethiopian food in Bole, Addis Ababa."
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Habesha Eatery</h1>
+      <nav>
+        <a href="#">Reservations</a>
+        <a href="#">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Reserve a Spot</h2>
+        <form action="#">
+          <label for="fname">Full Name:</label>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            required
+            placeholder="Enter your full name."
+          />
+          <br />
+
+          <label for="phone_number">Telephone:</label>
+          <input
+            type="tel"
+            id="phone_number"
+            name="phone_number"
+            required
+            pattern="09[0-9]{8}"
+            placeholder="09XXXXXXXX"
+          />
+          <br />
+
+          <label for="email">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+          />
+          <br />
+
+          <label for="date">Date:</label>
+          <input type="datetime-local" id="date" name="date" required />
+          <br />
+
+          <label for="guests">Number of Guests:</label>
+          <input
+            type="number"
+            id="guests"
+            name="guests"
+            required
+            min="1"
+            max="20"
+            placeholder="1-20"
+          />
+          <br />
+
+          <label for="requests">Special Requests:</label>
+          <textarea
+            id="requests"
+            name="requests"
+            maxlength="150"
+            rows="3"
+            placeholder="Any special requests?"
+          ></textarea>
+          <br /><br />
+
+          <button type="submit">Reserve</button>
+        </form>
+      </section>
+      <br />
+      <br />
+
+      <section>
+        <table style="border-collapse: collapse; border: 1px solid black">
+          <caption>
+            Our Menu
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid black">Dish</th>
+              <th scope="col" style="border: 1px solid black">Price (ETB)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" style="border: 1px solid black">
+                Tibs (1/2 kilo)
+              </th>
+              <td style="border: 1px solid black">600</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid black">Tibs (1 kilo)</th>
+              <td style="border: 1px solid black">1200</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid black">Shiro</th>
+              <td style="border: 1px solid black">200</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid black">Beyaynet</th>
+              <td style="border: 1px solid black">350</td>
+            </tr>
+            <tr>
+              <th scope="row" style="border: 1px solid black">Chicken Roast</th>
+              <td style="border: 1px solid black">1000</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Find Us</h2>
+        <figure>
+          <img
+            src="./images/lambtibs.jpeg"
+            alt="Lamb Tibs on a tray with injera, with a hand preparing a bite."
+            loading="lazy"
+            style="width: 90%; height: auto"
+          />
+          <figcaption>Lamb tibs served with traditional injera</figcaption>
+        </figure>
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63054.73287609015!2d38.83204485!3d8.979435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b9b33a3569139%3A0xb505349b8c87fdd2!2sBole%2C%20Addis%20Ababa!5e0!3m2!1sen!2set!4v1785488324919!5m2!1sen!2set"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Google Map showing Habesha Eatery location in Bole, Addis Ababa"
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Habesha Eatery - Bole, Addis Ababa</p>
+      <p>
+        Contact:
+        <a href="#">info@habeshaeatery.com</a>
+      </p>
+    </footer>
+  </body>
+</html>
