@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Habesha Eatery, Bole</title>
+    <meta name="description" content="Get in touch with Habesha Eatery." />
+  </head>
+
+  <body>
+    <header>
+      <h1>Habesha Eatery</h1>
+      <nav>
+        <a href="index.html">Reservations</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Get in Touch</h2>
+        <form action="/contact" method="post">
+          <label for="name">Full Name:</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            placeholder="Enter your full name"
+          />
+          <br /><br />
+
+          <label for="email">Email Address:</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="you@example.com"
+          />
+          <br /><br />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            cols="40"
+            required
+            placeholder="How can we help you?"
+          ></textarea>
+          <br /><br />
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Opening Hours</h2>
+        <table style="border-collapse: collapse; border: 1px solid black">
+          <caption>
+            Weekly Opening Hours
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" style="border: 1px solid black">Day</th>
+              <th scope="col" style="border: 1px solid black">Hours</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="border: 1px solid black">Monday - Thursday</td>
+              <td style="border: 1px solid black">8:00 AM - 10:00 PM</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid black">Friday - Saturday</td>
+              <td style="border: 1px solid black">8:00 AM - 11:00 PM</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid black">Sunday</td>
+              <td style="border: 1px solid black">9:00 AM - 9:00 PM</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Habesha Eatery - Bole, Addis Ababa</p>
+      <p>
+        Contact:
+        <a href="#">info@habeshaeatery.com</a>
+      </p>
+    </footer>
+  </body>
+</html>
