@@ -1,0 +1,347 @@
+<!-- 1. Build a registration form for a fictional Ethio Telecom service with name, email, tel (validated to +251 and 9 digits), and a branch select (Bole, Kazanchis, Piassa). Every control labelled; submission method chosen and justified in a comment.
+2. Mark up a five-row Ethiopian Airlines flight table with a caption, column scope headers (Flight, From, To, Departs, Price ETB) and proper thead/tbody.
+3. Add a media block: one dish or landmark image with meaningful alt text inside a figure with a
+figcaption, plus a map iframe with a title.
+4. Take an inaccessible snippet — a div used as a button, an unlabelled input, an image with no
+alt — and rewrite all three correctly. Note in a comment what each fix gives a screen-reader or
+keyboard user.
+5. Write a complete <head> for the page: unique title, meta description, charset and viewport. Run the whole page through the W3C validator and fix every error. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethio-Telecom Registration Form</title>
+    <meta name="description" content="Ethio-Telecom Registration Form" />
+  </head>
+
+  <body>
+    <form>
+      <label for="full_name">Full Name: </label>
+      <input type="text" name="full_name" id="full_name" /> <br /><br />
+      <label for="email">Email: </label>
+      <input type="email" /> <br /><br />
+      <label for="phone_number">Phone Number: </label>
+      <input
+        type="tel"
+        name="phone_number"
+        id="phone_number"
+        placeholder="+251..."
+        pattern="\+251[0-9]{9}"
+      /><br /><br />
+      <label for="branch">Branch: </label>
+      <select name="branch" id="branch">
+        <option value="bole">Bole</option>
+        <option value="kazanchis">Kazanchis</option>
+        <option value="piassa">Piassa</option></select
+      ><br /><br />
+      <button type="submit">Register</button>
+    </form>
+    <br /><br />
+
+    <table
+      style="
+        border: 1px solid saddlebrown;
+        table-layout: fixed;
+        width: 80%;
+        border-collapse: collapse;
+      "
+    >
+      <caption>
+        Ethiopian Airlines Flight Details
+      </caption>
+      <thead style="background-color: bisque">
+        <tr>
+          <th
+            scope="col"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Flight
+          </th>
+          <th
+            scope="col"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            From
+          </th>
+          <th
+            scope="col"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            To
+          </th>
+          <th
+            scope="col"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Departs
+          </th>
+          <th
+            scope="col"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Price(ETB)
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th
+            scope="row"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            QF103
+          </th>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Addis Ababa, Ethiopia
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Rome, Italy
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            11:00 PM
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            150,000
+          </td>
+        </tr>
+        <tr>
+          <th
+            scope="row"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            AF296Q
+          </th>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Addis Ababa, Ethiopia
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Washington, USA
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            11:00 PM
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            265,000
+          </td>
+        </tr>
+        <tr>
+          <th
+            scope="row"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            ER4587
+          </th>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Addis Ababa, Ethiopia
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Dubai, UAE
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            8:00 AM
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            63,000
+          </td>
+        </tr>
+        <tr>
+          <th
+            scope="row"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            BM2435
+          </th>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Addis Ababa, Ethiopia
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Shanghai, China
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            1:00 PM
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            300,000
+          </td>
+        </tr>
+        <tr>
+          <th
+            scope="row"
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            YZ6768
+          </th>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Addis Ababa, Ethiopia
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            Nairobi, Kenya
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            4:00 PM
+          </td>
+          <td
+            style="
+              border-bottom: 1px solid saddlebrown;
+              border-right: 1px solid saddlebrown;
+            "
+          >
+            47,000
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br /><br />
+
+    <figure>
+      <img
+        src="./images/hobbiton.jpg"
+        alt="Houses in Hobbiton"
+        width="800"
+        height="600"
+      />
+      <figcaption>
+        Hobbiton was a village in the central regions of The Shire, within the
+        borders of the Westfarthing.
+      </figcaption>
+    </figure>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211671.16751290814!2d175.58233517110955!3d-37.84346722678701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6dab6237e84a77%3A0x24ff7cd6a8f521a6!2sHobbiton%E2%84%A2%20Movie%20Set%20Tours!5e0!3m2!1sen!2set!4v1785483286503!5m2!1sen!2set"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      title="Map showing the filming location of the Hobbiton"
+    ></iframe>
+    <br /><br />
+  </body>
+</html>
