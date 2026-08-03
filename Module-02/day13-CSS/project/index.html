@@ -1,0 +1,43 @@
+<!--  Mini-Project — Business Profile Card
+What you will build
+A one-page styled profile card for a fictional Addis Ababa business — for example a Bole cafe, a
+Kazanchis pharmacy, or a TeleBirr-accepting shop. The HTML can be simple; the focus is the CSS.
+Requirements
+• A :root palette and spacing scale defined as CSS variables, used throughout via var().
+• box-sizing: border-box set globally, and a readable body font with a web font from Google
+Fonts.
+• A centered card built with the box model: padding, a border, border-radius and margin.
+• A clear typographic hierarchy — a business name heading, a tagline, and body text with
+generous line-height.
+• A "Contact" button with a :hover state that changes only its lightness (hsl).
+• At least one pseudo-element — for example a decorative ::before accent or a required-field
+marker. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bole Cafe</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1 class="business-name">Bole Cafe</h1>
+      <p class="subtitle">slow mornings · fresh roast · ቡና</p>
+      <p class="description">
+        Small-batch Ethiopian coffee, brewed to order. Open daily 6:30 am – 8
+        pm. We accept TeleBirr and all cards.
+      </p>
+      <div class="footer">
+        <button class="btn">Contact</button>
+      </div>
+    </div>
+  </body>
+</html>
