@@ -1,0 +1,77 @@
+<!-- 1. Write a :root block with at least four custom properties — two colors, one
+spacing value, one font stack — then build a styled button that uses all four via var(). 
+2. Take a 300px-wide card with 24px padding and a 2px border. Show its rendered width with content-box, then fix it to exactly 300px with border-box. 
+3. Given a paragraph that is targeted by an element, a class and an ID rule all setting color, predict which wins and explain the specificity score for each.
+4. Style a five-row table for an Ethiopian Airlines schedule: zebra rows with tr:nth-child(even), a styled header row, and comfortable cell padding. 
+5. Convert a three-color hex palette into both rgb() and hsl(). For the hsl version, produce a lighter hover shade of each by changing only the lightness -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click!</button>
+
+    <div class="content"></div>
+    <div class="box"></div>
+
+    <!-- ID will win bc it is the most specific and unique selector with (1,0,0) specificity-->
+    <p id="paragraph" class="paragraph">hello world</p>
+
+    <table>
+      <caption>
+        Ethiopian Airlines Flight Details
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Flight</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Departs</th>
+          <th scope="col">Price(ETB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">QF103</th>
+          <td>Addis Ababa, Ethiopia</td>
+          <td>Rome, Italy</td>
+          <td>11:00 PM</td>
+          <td>150,000</td>
+        </tr>
+        <tr>
+          <th scope="row">AF296Q</th>
+          <td>Addis Ababa, Ethiopia</td>
+          <td>Washington, USA</td>
+          <td>11:00 PM</td>
+          <td>265,000</td>
+        </tr>
+        <tr>
+          <th scope="row">ER4587</th>
+          <td>Addis Ababa, Ethiopia</td>
+          <td>Dubai, UAE</td>
+          <td>8:00 AM</td>
+          <td>63,000</td>
+        </tr>
+        <tr>
+          <th scope="row">BM2435</th>
+          <td>Addis Ababa, Ethiopia</td>
+          <td>Shanghai, China</td>
+          <td>1:00 PM</td>
+          <td>300,000</td>
+        </tr>
+        <tr>
+          <th scope="row">YZ6768</th>
+          <td>Addis Ababa, Ethiopia</td>
+          <td>Nairobi, Kenya</td>
+          <td>4:00 PM</td>
+          <td>47,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

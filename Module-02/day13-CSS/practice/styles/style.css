@@ -1,0 +1,71 @@
+:root {
+  --space: 8px;
+  --primary: rgba(175, 70, 14, 0.635);
+  --secondary: beige;
+  --font: "Open Sans", sans-serif;
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: var(--font);
+  padding: var(--space);
+  border: none;
+  margin-bottom: 10px;
+}
+
+.content {
+  background-color: var(--secondary);
+  width: 300px;
+  padding: 24px;
+  border: 2px solid var(--primary);
+  box-sizing: content-box;
+}
+.box {
+  background-color: var(--secondary);
+  width: 300px;
+  padding: 24px;
+  border: 2px solid var(--primary);
+  box-sizing: border-box;
+}
+/* (0,0,1) specificity */
+p {
+  color: crimson;
+}
+/* (0,1,0) specificity */
+.paragraph {
+  color: cadetblue;
+}
+
+/* ID will win bc it is the most specific and unique selector with (1,0,0) specificity*/
+#paragraph {
+  color: darkgreen;
+}
+table {
+  border: 1px solid var(--primary);
+  border-collapse: collapse;
+}
+
+caption {
+  margin: 10px;
+}
+
+thead {
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-style: italic;
+  background-color: var(--primary);
+  text-align: center;
+}
+
+th,
+td {
+  border: 1px solid var(--primary);
+  /* column-width: 3rem; */
+  padding: 15px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--secondary);
+}
