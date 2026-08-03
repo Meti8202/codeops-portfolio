@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #b8860b;
+  --stripe: #f4d995a1;
+  --secondary: #fbf2e3;
+  --hover: #fde8b4a5;
+  --text-color: #3e2c1b;
+  --heading: 24px;
+  --subheading: 18px;
+  --font-size: 14px;
+  --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: var(--font);
+  line-height: 1.5;
+}
+
+.menu-card {
+  padding: 10px;
+  margin: 20px auto;
+  border: 1px solid var(--primary);
+  border-top: 4px solid var(--primary);
+  border-radius: 10px;
+  width: 400px;
+  background-color: var(--secondary);
+  color: var(--text-color);
+  font-family: var(--font);
+}
+
+.menu-card:hover {
+  background-color: var(--hover);
+}
+
+.dish-image {
+  width: 90%;
+  margin: 10px;
+}
+
+.dish {
+  overflow: auto;
+}
+
+.name {
+  font-size: var(--heading);
+  float: left;
+}
+
+.price {
+  font-size: var(--subheading);
+  float: right;
+}
+
+.price::before {
+  content: "ETB ";
+}
+
+.description {
+  font-size: var(--font-size);
+  clear: both;
+}
+
+.ingredient {
+  margin: 10px 30px;
+  font-size: var(--font-size);
+}
+
+.ingredient:nth-child(even) {
+  background-color: var(--stripe);
+}

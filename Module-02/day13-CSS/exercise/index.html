@@ -1,0 +1,41 @@
+<!-- Style the Habesha Eatery menu card
+DELIVERABLE
+A single styled .menu-card component using variables, the box model, typography and at least one pseudo-class and one pseudo-element.
+Steps
+• Add box-sizing: border-box to the global reset.
+• Set a base font-family and line-height on body.
+• Give the card padding, a border, and a gold top accent.
+• Use var() for every colour — no raw hex in the card rules.
+• Add a :hover state and an ::before that prefixes the price with "ETB ".
+• Zebra-stripe the ingredient list with :nth-child(even) -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Menu Card - Habesha Eatery</title>
+  </head>
+  <body>
+    <div class="menu-card">
+      <img class="dish-image" src="./images/lambtibs.jpeg" alt="" />
+      <div class="dish">
+        <h3 class="name">Lamb Tibs</h3>
+
+        <p class="price">650</p>
+      </div>
+      <p class="description">
+        This dish is bite-sized lamb cubes cooked with onions, garlic and hot
+        peppers in seasoned butter or oil. It is savory, aromatic and often
+        spiced with berbere or fresh rosemary, then served hot over injera.
+      </p>
+      <ul class="list">
+        <li class="ingredient">Meat</li>
+        <li class="ingredient">Onions</li>
+        <li class="ingredient">Peppers</li>
+        <li class="ingredient">Garlic</li>
+      </ul>
+    </div>
+  </body>
+</html>
