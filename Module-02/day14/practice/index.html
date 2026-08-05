@@ -1,0 +1,67 @@
+<!-- 1. Build a navbar with Flexbox: a logo on the left and three links plus a button on the right, vertically centered, using justify-content: space-between.
+2. Create a row of four cards with flex: 1 so they share the width equally, then add flex-wrap and a gap so they reflow on a narrow screen.
+3. Build a photo gallery with Grid using repeat(auto-fit, minmax(200px, 1fr)). Resize the window and confirm the column count changes on its own.
+4. Lay out a full page with grid-template-areas: header, sidebar, main and footer. Add a media query that collapses it to a single column under 700px.
+5. Take a product card and pin a circular "ETB Sale" badge to its top-right corner using relative + absolute positioning. -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <img src="./images/logo.png" alt="Logo" class="logo" />
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Moths</a>
+        <a href="#">About</a>
+        <button class="add-btn">Buy One</button>
+      </nav>
+    </header>
+
+    <section class="container">
+      <div class="card">Atlas Moth</div>
+      <div class="card">Luna Moth</div>
+      <div class="card">Cecropia Moth</div>
+    </section>
+
+    <section class="gallery">
+      <div class="img-card">
+        <img src="./images/1.png" alt="" class="moth" />
+      </div>
+      <div class="img-card">
+        <img src="./images/2.png" alt="" class="moth" />
+      </div>
+      <div class="img-card">
+        <img src="./images/3.png" alt="" class="moth" />
+      </div>
+      <div class="img-card">
+        <img src="./images/4.png" alt="" class="moth" />
+      </div>
+      <div class="img-card">
+        <img src="./images/5.png" alt="" class="moth" />
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="header">Gallery</div>
+      <div class="sidebar">Moth Facts: 160,000+ species worldwide</div>
+      <div class="main">Featured: Atlas Moth – wingspan up to 24 cm</div>
+      <div class="footer">© Moth Enthusiasts</div>
+    </section>
+
+    <section class="product-section">
+      <div class="product-card">
+        <div class="badge">ETB Sale</div>
+        <img src="./images/2.png" alt="Product" class="product-img" />
+        <h3>Moth Marvel</h3>
+        <p class="price">ETB 250</p>
+        <button class="add-btn">Add to Cart</button>
+      </div>
+    </section>
+  </body>
+</html>
