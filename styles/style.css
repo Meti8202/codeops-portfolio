@@ -195,9 +195,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .tagline h1 {
-    font-size: 26px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -302,20 +299,4 @@ body {
   font-family: inherit;
   font-size: 1rem;
   width: 100%;
-}
-
-.reserve-button {
-  background: var(--primary);
-  color: var(--white);
-  padding: 10px 20px;
-  border: none;
-  border-radius: 40px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  align-self: flex-start;
-}
-.reserve-button:hover {
-  background: #a06f0a;
 }
