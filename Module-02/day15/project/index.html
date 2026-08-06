@@ -29,6 +29,7 @@
             Fresh Habesha meals made with rich spices, warm injera and bold
             flavor.
           </p>
+          <a href="#reserve" class="reserve-button">Reserve a Table</a>
         </section>
         <section id="about" class="about">
           <h2>Our Story</h2>
@@ -102,10 +103,72 @@
             <p class="price">700</p>
           </article>
         </section>
+
+        <section id="reserve" class="reservation">
+          <h2>Reserve a Table</h2>
+          <form action="#" class="reservation-form">
+            <label for="fname">Full Name:</label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              required
+              placeholder="Enter your full name"
+            />
+
+            <label for="phone_number">Telephone:</label>
+            <input
+              type="tel"
+              id="phone_number"
+              name="phone_number"
+              required
+              pattern="09[0-9]{8}"
+              placeholder="09XXXXXXXX"
+            />
+
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+            />
+
+            <label for="date">Date &amp; Time:</label>
+            <input type="datetime-local" id="date" name="date" required />
+
+            <label for="guests">Number of Guests:</label>
+            <input
+              type="number"
+              id="guests"
+              name="guests"
+              required
+              min="1"
+              max="20"
+              placeholder="1–20"
+            />
+
+            <label for="requests">Special Requests:</label>
+            <textarea
+              id="requests"
+              name="requests"
+              maxlength="150"
+              rows="3"
+              placeholder="Any special requests?"
+            ></textarea>
+
+            <button type="submit" class="reserve-btn">Reserve</button>
+          </form>
+        </section>
       </main>
 
-      <footer class="footer">
-        <p>&copy; 2026 Habesha Eatery - Bole, Addis Ababa</p>
+      <footer id="contact" class="footer">
+        <div class="contact">
+          <p><strong>Habesha Eatery</strong></p>
+          <p>Bole, Addis Ababa, Ethiopia</p>
+          <p></p>+251 912 345 678</p>
+        </div>
+        <p class="copyright">&copy; 2026 Habesha Eatery – Bole, Addis Ababa</p>
       </footer>
     </div>
   </body>
