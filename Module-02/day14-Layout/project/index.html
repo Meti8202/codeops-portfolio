@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EthioAirlines · Results</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="navbar">
+        <div class="block">
+          <div class="logo">
+            <img src="./images/logo.png" alt="EthioAirlines Logo" />
+            <h3>EthioAirlines</h3>
+          </div>
+          <nav class="links">
+            <a href="#Book">Book</a>
+            <a href="#MyTrips">My Trips</a>
+            <a href="#Checkin">Check-in</a>
+            <a href="#Shebamiles">ShebaMiles</a>
+          </nav>
+        </div>
+        <div class="block">
+          <div class="search">
+            <input type="text" placeholder="Search flights..." />
+          </div>
+          <button class="login-btn">Login</button>
+        </div>
+      </header>
+
+      <aside class="filters">
+        <h5>Filters</h5>
+
+        <div class="filter-section">
+          <h6>STOPS</h6>
+          <label><input type="checkbox" /> Direct</label>
+          <label><input type="checkbox" /> 1 stop</label>
+          <label><input type="checkbox" /> 2+ stops</label>
+        </div>
+
+        <div class="filter-section">
+          <h6>PRICE</h6>
+          <label
+            ><input type="radio" name="price" /> 30,000 – 50,000 ETB
+          </label>
+          <label
+            ><input type="radio" name="price" /> 50,000 – 100,000 ETB</label
+          >
+          <label
+            ><input type="radio" name="price" /> 100,000 - 150,000 ETB</label
+          >
+          <label><input type="radio" name="price" /> 150,000 ETB +</label>
+        </div>
+
+        <div class="filter-section">
+          <h6>AIRLINES</h6>
+          <label><input type="checkbox" /> Ethiopian</label>
+          <label><input type="checkbox" /> Kenya Airways</label>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="apply-btn">Apply</button>
+          <button class="reset-btn">Reset</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <div class="results-header">
+          <h3>RESULTS</h3>
+          <p>14 flights found</p>
+        </div>
+
+        <section class="card-grid">
+          <article class="card">
+            <div class="card-top">
+              <span class="airline">ETHIOPIAN ET702</span>
+              <span class="badge">BEST</span>
+            </div>
+            <div class="flight-times">
+              <div class="time-group">
+                <span class="time">06:00</span>
+                <span class="city">ADDIS</span>
+              </div>
+              <span class="arrow">to</span>
+              <div class="time-group">
+                <span class="time">10:15 AM</span>
+                <span class="city">NRB</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="price">ETB 45,000</span>
+              <button class="select-btn">SELECT</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="airline">KENYA AIRWAYS KQ105</span>
+            </div>
+            <div class="flight-times">
+              <div class="time-group">
+                <span class="time">11:00 PM</span>
+                <span class="city">ADDIS</span>
+              </div>
+              <span class="arrow">to</span>
+              <div class="time-group">
+                <span class="time">12:45 PM</span>
+                <span class="city">DUB</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="price">ETB 82,000</span>
+              <button class="select-btn">SELECT</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="airline">ETHIOPIAN ET704</span>
+            </div>
+            <div class="flight-times">
+              <div class="time-group">
+                <span class="time">7:00 AM</span>
+                <span class="city">ADDIS</span>
+              </div>
+              <span class="arrow">to</span>
+              <div class="time-group">
+                <span class="time">11:30 AM </span>
+                <span class="city">CAI</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="price">ETB 39,000</span>
+              <button class="select-btn">SELECT</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="airline">ETHIOPIAN ET708</span>
+            </div>
+            <div class="flight-times">
+              <div class="time-group">
+                <span class="time">3:20 PM</span>
+                <span class="city">ADDIS</span>
+              </div>
+              <span class="arrow">to</span>
+              <div class="time-group">
+                <span class="time">12:10 AM</span>
+                <span class="city">JOB</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="price">ETB 67,000</span>
+              <button class="select-btn">SELECT</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="airline">ETHIOPIAN ET712</span>
+            </div>
+            <div class="flight-times">
+              <div class="time-group">
+                <span class="time">1:00 AM</span>
+                <span class="city">ADDIS</span>
+              </div>
+              <span class="arrow">to</span>
+              <div class="time-group">
+                <span class="time">3:45 PM</span>
+                <span class="city">LON</span>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <span class="price">ETB 120,000</span>
+              <button class="select-btn">SELECT</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <p class="copyright">&copy; 2026 ETHIO AIRLINES</p>
+      </footer>
+    </div>
+  </body>
+</html>
