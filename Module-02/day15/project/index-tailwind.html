@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habesha Eatery – Bole, Addis Ababa</title>
+    <meta
+      name="description"
+      content="Authentic Ethiopian food in Bole, Addis Ababa. Reserve a table."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-segoe text-[#3e2c1b] bg-[#fffbf5] text-sm leading-relaxed">
+    <div class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+      <header
+        class="sticky top-0 z-10 flex justify-between items-center px-5 py-4 bg-[#fffbf5] border-b-2 border-[#b8860b] max-sm:flex-col max-sm:gap-3"
+      >
+        <div class="text-xl font-bold text-[#b8860b]">Habesha Eatery</div>
+        <nav class="flex gap-4 max-sm:flex-wrap max-sm:justify-center">
+          <a
+            href="#about"
+            class="font-semibold no-underline text-[#3e2c1b] hover:text-[#b8860b]"
+            >About</a
+          >
+          <a
+            href="#menu"
+            class="font-semibold no-underline text-[#3e2c1b] hover:text-[#b8860b]"
+            >Menu</a
+          >
+          <a
+            href="#reserve"
+            class="font-semibold no-underline text-[#3e2c1b] hover:text-[#b8860b]"
+            >Reserve</a
+          >
+          <a
+            href="#contact"
+            class="font-semibold no-underline text-[#3e2c1b] hover:text-[#b8860b]"
+            >Contact</a
+          >
+        </nav>
+      </header>
+
+      <main class="w-full max-w-[1100px] mx-auto px-4 py-6">
+        <section
+          class="mb-8 p-8 text-center bg-white border border-[#b8860b] rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+        >
+          <h1 class="text-[clamp(28px,6vw,48px)] font-bold mb-2">
+            Gather around the table.
+          </h1>
+          <p class="text-lg mb-5">
+            Fresh Habesha meals made with rich spices, warm injera and bold
+            flavor.
+          </p>
+          <a
+            href="#reserve"
+            class="inline-block bg-[#b8860b] text-white px-5 py-2.5 rounded-full font-bold text-base no-underline hover:bg-[#a06f0a] transition-colors"
+          >
+            Reserve a Table
+          </a>
+        </section>
+
+        <section
+          id="about"
+          class="mb-8 p-6 bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+        >
+          <h2 class="text-2xl font-bold text-[#b8860b] mb-2">Our Story</h2>
+          <p class="leading-relaxed">
+            Founded in 2018 in the heart of Bole, Habesha Eatery brings
+            authentic Ethiopian flavours in Addis Ababa. We use family recipes,
+            fresh ingredients from local markets and cooking techniques that
+            bring out the taste of our spices. Every dish tells a story of
+            tradition, community and the warmth of Ethiopian hospitality.
+          </p>
+        </section>
+
+        <section
+          id="menu"
+          class="grid grid-cols-1 gap-5 mb-10 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <article
+            class="relative flex flex-col p-3 bg-white border border-[#b8860b] border-t-4 border-t-[#b8860b] rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] min-h-[100%] transition-all duration-200 hover:bg-[#f5e5cca5] hover:-translate-y-2 hover:scale-105 hover:shadow-lg motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 motion-reduce:transition-colors"
+          >
+            <span
+              class="absolute top-3 right-3 px-2.5 py-1.5 bg-[#0c6228] text-white text-xs font-bold rounded-full shadow-md z-10"
+              >Popular</span
+            >
+            <img
+              class="w-full h-[180px] object-cover rounded-lg mb-3"
+              src="./images/lambtibs.jpeg"
+              alt="Lamb Tibs"
+            />
+            <div class="flex justify-between items-baseline gap-3 mb-2">
+              <h3 class="text-2xl font-bold">Lamb Tibs</h3>
+            </div>
+            <p class="mb-3 flex-0">
+              Bite-sized lamb cubes cooked with onions, garlic and hot peppers
+              in seasoned butter or oil.
+            </p>
+            <p class="italic text-lg text-center">Ingredients</p>
+            <ul class="list-none mb-3 justify-items-center">
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Meat
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Onions
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Peppers
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Garlic
+              </li>
+            </ul>
+            <p
+              class="mt-auto pt-2 text-lg font-bold text-[#b8860b] border-t border-dashed border-[rgba(184,134,11,0.3)] text-right before:content-['ETB_'] before:font-normal before:text-[#3e2c1b]"
+            >
+              650
+            </p>
+          </article>
+          <article
+            class="relative flex flex-col p-3 bg-white border border-[#b8860b] border-t-4 border-t-[#b8860b] rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] min-h-[100%] transition-all duration-200 hover:bg-[#f5e5cca5] hover:-translate-y-2 hover:scale-105 hover:shadow-lg motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 motion-reduce:transition-colors"
+          >
+            <img
+              class="w-full h-[180px] object-cover rounded-lg mb-3"
+              src="./images/shiro.png"
+              alt="Shiro"
+            />
+            <div class="flex justify-between items-baseline gap-3 mb-2">
+              <h3 class="text-2xl font-bold">Shiro</h3>
+            </div>
+            <p class="mb-3 flex-0">
+              Smooth chickpea stew seasoned with onions, garlic and berbere.
+            </p>
+            <p class="italic text-lg text-center">Ingredients</p>
+            <ul class="list-none mb-3 justify-items-center">
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Chickpeas
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Onions
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Garlic
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Berbere
+              </li>
+            </ul>
+            <p
+              class="mt-auto pt-2 text-lg font-bold text-[#b8860b] border-t border-dashed border-[rgba(184,134,11,0.3)] text-right before:content-['ETB_'] before:font-normal before:text-[#3e2c1b]"
+            >
+              320
+            </p>
+          </article>
+
+          <article
+            class="relative flex flex-col p-3 bg-white border border-[#b8860b] border-t-4 border-t-[#b8860b] rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)] min-h-[100%] transition-all duration-200 hover:bg-[#f5e5cca5] hover:-translate-y-2 hover:scale-105 hover:shadow-lg motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100 motion-reduce:transition-colors"
+          >
+            <img
+              class="w-full h-[180px] object-cover rounded-lg mb-3"
+              src="./images/doro.png"
+              alt="Doro Wot"
+            />
+            <div class="flex justify-between items-baseline gap-3 mb-2">
+              <h3 class="text-2xl font-bold">Doro Wot</h3>
+            </div>
+            <p class="mb-3 flex-0">
+              Chicken stew with rich berbere sauce and boiled eggs.
+            </p>
+            <p class="italic text-lg text-center">Ingredients</p>
+            <ul class="list-none mb-3 justify-items-center">
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Chicken
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Eggs
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Onions
+              </li>
+              <li
+                class="px-2 py-1.5 my-2.5 rounded even:bg-[#f4d995a1] odd:bg-[#fffbf5]"
+              >
+                Berbere
+              </li>
+            </ul>
+            <p
+              class="mt-auto pt-2 text-lg font-bold text-[#b8860b] border-t border-dashed border-[rgba(184,134,11,0.3)] text-right before:content-['ETB_'] before:font-normal before:text-[#3e2c1b]"
+            >
+              700
+            </p>
+          </article>
+        </section>
+
+        <section
+          id="reserve"
+          class="mb-8 p-6 bg-white rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.08)]"
+        >
+          <h2 class="text-2xl font-bold text-[#b8860b] mb-4">
+            Reserve a Table
+          </h2>
+          <form action="#" class="flex flex-col gap-3 max-w-[500px]">
+            <label class="font-semibold" for="fname">Full Name:</label>
+            <input
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              type="text"
+              id="fname"
+              name="fname"
+              required
+              placeholder="Enter your full name"
+            />
+
+            <label class="font-semibold" for="phone_number">Telephone:</label>
+            <input
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              type="tel"
+              id="phone_number"
+              name="phone_number"
+              required
+              pattern="09[0-9]{8}"
+              placeholder="09XXXXXXXX"
+            />
+
+            <label class="font-semibold" for="email">E-mail:</label>
+            <input
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+            />
+
+            <label class="font-semibold" for="date">Date &amp; Time:</label>
+            <input
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              type="datetime-local"
+              id="date"
+              name="date"
+              required
+            />
+
+            <label class="font-semibold" for="guests">Number of Guests:</label>
+            <input
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              type="number"
+              id="guests"
+              name="guests"
+              required
+              min="1"
+              max="20"
+              placeholder="1–20"
+            />
+
+            <label class="font-semibold" for="requests"
+              >Special Requests:</label
+            >
+            <textarea
+              class="px-3 py-2 border border-gray-300 rounded-md  text-base w-full "
+              id="requests"
+              name="requests"
+              maxlength="150"
+              rows="3"
+              placeholder="Any special requests?"
+            ></textarea>
+
+            <button
+              class="bg-[#b8860b] text-white px-5 py-2.5 rounded-full font-bold text-base cursor-pointer transition-colors hover:bg-[#a06f0a] self-start"
+              type="submit"
+            >
+              Reserve
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <footer
+        id="contact"
+        class="px-6 py-5 text-center bg-[#fffbf5] border-t-2 border-[#b8860b]"
+      >
+        <div class="mb-2">
+          <p class="font-bold">Habesha Eatery</p>
+          <p>Bole, Addis Ababa, Ethiopia</p>
+          <p>+251 912 345 678</p>
+        </div>
+        <p class="text-sm text-gray-600">
+          &copy; 2026 Habesha Eatery – Bole, Addis Ababa
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
