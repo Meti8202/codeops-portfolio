@@ -3,7 +3,7 @@
 **IBT College Canada · Full Stack Software Development**  
 **Program:** CodeOps · 9 modules · 24 weeks · 120 days · 480 hours  
 **Cohort:** Ethiopia  
-**Status:** Day 16 of 120 · Module 02 in progress
+**Status:** Day 17 of 120 · Module 02 in progress
 
 Daily work from the CodeOps curriculum is pushed here. This README is updated as modules progress.
 
@@ -24,7 +24,7 @@ This repository is my public learning log and project portfolio for **CodeOps** 
 | Module | Title | Days | Hours | Status |
 |--------|--------|------|-------|--------|
 | 01 | Foundation: Git, Terminal, Python, OOP & DSA | 1–10 | 40 | ✅ Complete |
-| 02 | Frontend: HTML, CSS & JavaScript | 11–25 | 60 | 🔄 In progress (Day 16) |
+| 02 | Frontend: HTML, CSS & JavaScript | 11–25 | 60 | 🔄 In progress (Day 17) |
 | 03 | Frontend: React & Next.js | 26–50 | 100 | ⏳ Upcoming |
 | 04 | Backend Track (Node/Nest · Go · .NET) | 51–75 | 100 | ⏳ Upcoming |
 | 05 | Databases (PostgreSQL, MongoDB, Neo4j) | 76–85 | 40 | ⏳ Upcoming |
@@ -33,8 +33,8 @@ This repository is my public learning log and project portfolio for **CodeOps** 
 | 08 | Software Architecture & Design | 101–105 | 20 | ⏳ Upcoming |
 | 09 | Market Ready Sprint | 106–120 | 60 | ⏳ Upcoming |
 
-**Current focus:** Module 02 — JavaScript foundations (Day 16)  
-**Next:** Functions, closures, higher-order functions → arrays & objects → DOM → async / APIs → weekly projects
+**Current focus:** Module 02 — Functions, closures & higher-order functions (Day 17)  
+**Next:** Arrays, objects & modern JavaScript → DOM & events → async / APIs → weekly projects
 
 ---
 
@@ -69,15 +69,10 @@ codeops-portfolio/
 │   │   └── README.md
 │   ├── day15-Responsive-Animations/
 │   ├── day16-Javascript/
-│   └── day17-Functions/                # as days are added
-│       ├── exercise/
-│       ├── practice/
-│       ├── project/
-│       │   ├── images/
-│       │   ├── styles/  or  css/
-│       │   ├── js/                     # from JS days onward
-│       │   └── index.html
-│       └── …
+│   └── day17-Functions/
+│       ├── exercise/js/order.js        # Habesha Eatery order module
+│       ├── practice/script.js          # vat, counter, discountBy, HOF drills
+│       └── project/script.js           # TeleBirr loyalty points module
 │
 ├── Module-03/ … Module-09/             # added as the program advances
 ├── README.md
@@ -125,7 +120,7 @@ Grew day by day from a simple encapsulated account into a small banking system:
 
 ### Module 02 — Frontend: HTML, CSS & JavaScript (Days 11–25) 🔄
 
-**Stack so far:** HTML5 · CSS3 (Flexbox, Grid, responsive, transitions) · Tailwind · vanilla JavaScript (started Day 16)
+**Stack so far:** HTML5 · CSS3 (Flexbox, Grid, responsive, transitions) · Tailwind · vanilla JavaScript (Days 16–17)
 
 #### Days completed
 
@@ -137,7 +132,15 @@ Grew day by day from a simple encapsulated account into a small banking system:
 | `day14-Layout` | Flexbox & Grid | Complex layouts · exercise / practice / project each with own `images/` + `styles/` |
 | `day15-Responsive-Animations` | Responsive design, animation, Tailwind | Media queries, transitions, utility-first CSS |
 | `day16-Javascript` | JavaScript foundations | Types, coercion, template literals, control flow, loops |
-| `day17-Functions` | Functions, closures, higher-order functions | *(in progress / next)* |
+| `day17-Functions` | Functions, closures & higher-order functions | Declarations/arrows · private state · factories · callbacks |
+
+#### Day 17 work
+
+| Path | What it covers |
+|------|----------------|
+| `practice/script.js` | `vat` (default + arrow) · `makeCounter` closure · `discountBy` factory · `applyToAll` HOF · `forEach` / custom `myForEach` |
+| `exercise/js/order.js` | Habesha Eatery order module — `subtotal` (rest + loop) · `discountBy` · `withVat` · `toETB` · `makeReceiptMaker` (private order number) |
+| `project/script.js` | TeleBirr loyalty points — closure keeps balance private · `earn` / `redeem` / `balance` · earn-rule HOF (standard + holiday double) |
 
 #### Projects
 
@@ -145,11 +148,13 @@ Grew day by day from a simple encapsulated account into a small banking system:
 |---------|----------|-------------|
 | **EthioAirlines — Results** | Module-02 day project folders | Flight results UI: sticky navbar, filter sidebar, card grid, responsive layout, CSS variables |
 | **Habesha Eatery** | Module-02 day project folders | Restaurant site (Bole, Addis Ababa): menu cards, hero, about, reservation form. Built in plain CSS and with **Tailwind** |
+| **Habesha Eatery — Order module** | `day17-Functions/exercise` | Receipt maker with private order number, member discount, VAT, ETB formatting |
+| **TeleBirr loyalty points** | `day17-Functions/project` | Points balance via closure; swappable earn rules (standard / holiday double) |
 
 #### Day 16 practice
 
 - Tip + service-fee calculator (ETB / CBE Birr)  
-- FizzBuzz "Birr / TeleBirr” variant  
+- FizzBuzz "Birr / TeleBirr" variant  
 
 ---
 
@@ -172,5 +177,5 @@ Feedback and collaboration welcome.
 
 ---
 
-*Last updated: Day 16 — JavaScript Foundations*  
+*Last updated: Day 17 — Functions, Closures & Higher-Order Functions*  
 *Curriculum: CodeOps Full Stack Software Development · Version 2.0 · 2026*
