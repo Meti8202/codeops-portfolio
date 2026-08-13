@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 id="title">Title</h1>
+
+      <section>
+        <form id="order">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <p>Pick your items:</p>
+          <label
+            ><input type="checkbox" name="items" value="Tomato" /> Tomato</label
+          >
+          <label
+            ><input type="checkbox" name="items" value="Onion" /> Onion</label
+          >
+          <label
+            ><input type="checkbox" name="items" value="Potato" /> Potato</label
+          >
+          <label
+            ><input type="checkbox" name="items" value="Teff" /> Teff</label
+          >
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Cities</h2>
+        <ul id="cities"></ul>
+      </section>
+
+      <section>
+        <h2>Delete</h2>
+        <ul id="items">
+          <li>Teff <button type="button" class="del">×</button></li>
+          <li>Shiro <button type="button" class="del">×</button></li>
+          <li>Berbere <button type="button" class="del">×</button></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Add Item</h2>
+        <form id="add-form">
+          <input id="item-input" type="text" placeholder="e.g. Injera" />
+          <button type="submit">Add</button>
+        </form>
+        <ul id="form-list"></ul>
+      </section>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
