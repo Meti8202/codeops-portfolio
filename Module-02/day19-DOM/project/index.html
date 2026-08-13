@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Addis Market List</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Addis Market List</h1>
+
+      <form id="add-form">
+        <input id="name" type="text" placeholder="Item name (e.g. Teff)" />
+        <input
+          id="price"
+          type="number"
+          placeholder="Price (ETB)"
+          min="0"
+          step="0.5"
+        />
+        <button type="submit">Add item</button>
+      </form>
+
+      <p id="total">Total: 0.00 ETB</p>
+
+      <ul id="list"></ul>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

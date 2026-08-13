@@ -1,0 +1,130 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   body {
+     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+     color: rgb(72, 72, 27);
+     background-color: #f8f1df;
+   }
+   
+   .container {
+     margin: 50px auto;
+     padding: 30px 24px 40px;
+     max-width: 420px;
+     text-align: center;
+     border: 3px dashed #beb991;
+     background-color: #fafbde;
+     background-image: url("../images/bgd.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     min-height: 600px;
+   }
+   
+   .title {
+     margin: 24px 50px ;
+     font-size: 1.75rem;
+   }
+   
+   #add-form {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 10px;
+     margin-bottom: 16px;
+     max-width: 280px;
+     margin-left: auto;
+     margin-right: auto;
+   }
+   
+   #name,
+   #price {
+     width: 100%;
+     border: 1px solid #9fa16f;
+     border-radius: 20px;
+     padding: 8px 16px;
+     color: #4a4a23;
+     outline: none;
+     background: #fbf3dc;
+     font-size: 1rem;
+   }
+   
+   #name::placeholder,
+   #price::placeholder {
+     color: #8a8a5c;
+   }
+   
+   button {
+     padding: 8px 20px;
+     border-radius: 20px;
+     background-color: rgb(72, 72, 27);
+     border: 1px solid rgb(72, 72, 27);
+     color: #fbf3dc;
+     font-family: inherit;
+     font-size: 1.05rem;
+     cursor: pointer;
+     margin-top: 4px;
+   }
+   
+   button:hover {
+     background-color: rgb(59, 59, 4);
+   }
+   
+   #total {
+     font-size: 1.1rem;
+     text-align: center;
+     margin: 12px 0 10px;
+   }
+   
+   #list {
+     list-style: none;
+     margin: 12px auto;
+     font-size: 1.1rem;
+     max-width: 300px;
+     padding: 0;
+   }
+   
+   li {
+     display: flex;
+     align-items: center;
+     gap: 0.6rem;
+     margin: 0.35rem auto;
+     padding: 0.4rem 0.6rem;
+     border-radius: 8px;
+   }
+   
+   
+   .mark {
+     font-size: 1.1rem;
+     width: 1.4rem;
+     text-align: center;
+     color: #4a4a23;
+     flex-shrink: 0;
+   }
+   
+   .item-name {
+     flex: 1;
+     text-align: left;
+   }
+   
+   .done .item-name {
+     text-decoration: line-through;
+     opacity: 0.6;
+   }
+   
+   .del {
+     padding: 0 6px;
+     background: transparent;
+     border: none;
+     font-size: 1.3rem;
+     color: #4a4a23;
+     flex-shrink: 0;
+     cursor: pointer;
+   }
+   
+   .del:hover {
+     color: red;
+     background-color: transparent;
+   }
