@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <h1 class="title">Sign up</h1>
+      <p id="count">0 people signed up</p>
+
+      <form id="signup">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Almaz Bekele" />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="almaz@example.com" />
+
+        <label for="phone">Phone</label>
+        <input
+          id="phone"
+          type="tel"
+          placeholder="09xxxxxxxx or +2519xxxxxxxx"
+        />
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="At least 8 chars" />
+
+        <button type="submit">Sign up</button>
+      </form>
+
+      <p id="error" ></p>
+      <p id="success" ></p>
+    </section>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
