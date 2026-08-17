@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 21 Practice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Day 21 Practice</h1>
+
+      <section>
+        <button id="theme-btn" type="button">Change theme</button>
+      </section>
+
+      <section>
+        <button id="test-storage" type="button">Test save & load</button>
+        <p id="storage-result"></p>
+      </section>
+
+      <section>
+        <p id="count">0 people signed up</p>
+
+        <form id="signup">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="e.g. Almaz" />
+
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="09xxxxxxxx or +2519xxxxxxxx"
+          />
+
+          <button type="submit">Sign up</button>
+        </form>
+
+        <p id="error"></p>
+      </section>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
