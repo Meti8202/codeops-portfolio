@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birr Watch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body class="bg-gray-50 min-h-screen text-gray-800">
+    <header
+      class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between"
+    >
+      <div class="flex items-center gap-8">
+        <h1 class="text-xl font-bold text-gray-900">Birr Watch</h1>
+      </div>
+      <button
+        id="refreshButton"
+        type="button"
+        class="flex items-center gap-2 bg-gray-400 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-500"
+      >
+        <span class="material-symbols-outlined text-[18px]">refresh</span>
+        Refresh Rates
+      </button>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-6">
+      <section class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h2 class="text-lg font-semibold mb-2">Currency Converter</h2>
+        <p id="status" class="text-sm text-gray-500 mb-4"></p>
+
+        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+          <div class="flex-1 w-full">
+            <label class="block text-sm text-gray-500 mb-1">Amount (ETB)</label>
+            <div
+              class="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-blue-500"
+            >
+              <input
+                id="etb"
+                type="number"
+                value="1000"
+                min="0"
+                step="any"
+                class="w-full px-3 py-2.5 outline-none"
+              />
+              <span
+                class="px-3 text-gray-500 bg-gray-50 border-l border-gray-300"
+                >ETB</span
+              >
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <span class="material-symbols-outlined text-gray-600 text-3xl"
+              >compare_arrows</span
+            >
+          </div>
+
+          <div class="flex-1 w-full">
+            <label class="block text-sm text-gray-500 mb-1"
+              >Target Currency</label
+            >
+            <div class="flex gap-2">
+              <select
+                id="currency"
+                name="currencies"
+                class="border border-gray-300 rounded-lg px-3 py-2.5 bg-white outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="USD" selected>USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="KES">KES</option>
+                <option value="AED">AED</option>
+              </select>
+              <div
+                class="flex-1 flex items-center border border-gray-300 rounded-lg overflow-hidden bg-gray-50"
+              >
+                <input
+                  id="result"
+                  type="text"
+                  value="0.00"
+                  readonly
+                  class="w-full px-3 py-2.5 bg-gray-50 outline-none"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="convertBtn"
+          type="button"
+          class="mt-4 bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-blue-700"
+        >
+          Convert
+        </button>
+      </section>
+
+      <section class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+        <h2 class="text-lg font-semibold mb-5">Conversion History</h2>
+        <ul id="watchlist" class="space-y-3"></ul>
+      </section>
+    </main>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
