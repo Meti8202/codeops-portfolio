@@ -36,4 +36,4 @@ Rates are stored in `conversion_rates`. The app checks `result === "error"` and 
 2. **`loadRates()`** fetches live data, updates state, and sets status.
 3. **Convert** validates the amount, looks up the rate, shows the result, and adds a history entry if it is new.
 4. **History** is rendered from state; delete uses one delegated listener on the list.
-5. **`save()` / `load()`** persist history and last currency with `JSON.stringify` / `JSON.parse` (rates are refetched each visit).
+5. **`save()` / `load()`** persist history and last currency with `JSON.stringify` / `JSON.parse` (rates are refetch again each visit).

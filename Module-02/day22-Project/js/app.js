@@ -4,7 +4,7 @@ const KEY = "birrwatch";
 
 const state = {
   rates: {},
-  history: [], 
+  history: [],
   amount: 100,
   currency: "USD",
 };
@@ -13,8 +13,8 @@ const etbInput = document.getElementById("etb");
 const resultInput = document.getElementById("result");
 const select = document.getElementById("currency");
 const historyUl = document.getElementById("watchlist");
-const refreshBtn = document.getElementById("refreshButton");
-const convertBtn = document.getElementById("convertBtn");
+const refreshButton = document.getElementById("refreshButton");
+const convertBtn = document.getElementById("convertButton");
 const statusEl = document.getElementById("status");
 
 function setStatus(msg) {
@@ -38,8 +38,7 @@ function load() {
     const saved = JSON.parse(raw);
     if (Array.isArray(saved.history)) state.history = saved.history;
     if (saved.currency) state.currency = saved.currency;
-  } catch (err) {
-  }
+  } catch (err) {}
 }
 
 async function loadRates() {
@@ -145,7 +144,7 @@ historyUl.addEventListener("click", function (e) {
   renderHistory();
 });
 
-refreshBtn.addEventListener("click", loadRates);
+refreshButton.addEventListener("click", loadRates);
 
 etbInput.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
