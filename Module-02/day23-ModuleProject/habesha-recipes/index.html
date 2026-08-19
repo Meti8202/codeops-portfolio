@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habesha Recipes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-amber-50 text-stone-800 min-h-screen">
+    <header class="bg-stone-900 text-amber-50 sticky top-0 z-10 shadow">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <h1 class="text-2xl font-bold tracking-tight">Habesha Recipes</h1>
+
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <label for="search" class="sr-only">Search recipes</label>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search by name…"
+            class="w-full sm:w-56 rounded-lg border-0 px-3 py-2 text-stone-900 text-sm focus:ring-2 focus:ring-amber-400"
+          />
+
+          <label for="category" class="sr-only">Filter by category</label>
+          <select
+            id="category"
+            class="w-full sm:w-40 rounded-lg border-0 px-3 py-2 text-stone-900 text-sm focus:ring-2 focus:ring-amber-400"
+          >
+            <option value="all">All categories</option>
+            <option value="Main">Main</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Bread">Bread</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <p
+      id="status"
+      class="max-w-6xl mx-auto px-4 pt-4 text-sm text-stone-500"
+      role="status"
+    ></p>
+
+    <main
+      class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6"
+    >
+      <section id="recipes" aria-label="Recipes" class="min-h-[200px]">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
+          id="recipe-grid"
+        >
+          <article
+            class="bg-white rounded-xl border border-amber-100 shadow-sm overflow-hidden flex flex-col"
+          >
+            <div
+              class="h-36 bg-amber-100 flex items-center justify-center text-stone-400 text-sm"
+            >
+              Image
+            </div>
+            <div class="p-4 flex flex-col gap-2 flex-1">
+              <div class="flex items-start justify-between gap-2">
+                <h2 class="font-semibold text-lg">Doro Wat</h2>
+                <span
+                  class="text-xs font-medium bg-red-100 text-red-700 px-2 py-0.5 rounded-full"
+                  >Main</span
+                >
+              </div>
+              <p class="text-sm text-stone-600 line-clamp-2">
+                Spicy chicken stew with berbere and hard-boiled eggs.
+              </p>
+              <p class="text-xs text-stone-500">90 min · Spicy</p>
+              <button
+                type="button"
+                class="mt-auto self-start text-sm font-medium bg-stone-900 text-amber-50 px-3 py-1.5 rounded-lg hover:bg-stone-700"
+              >
+                Save favourite
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <aside
+        id="Favorites"
+        aria-label="Your Favorites"
+        class="bg-white rounded-xl border border-amber-100 shadow-sm p-4 h-fit lg:sticky lg:top-24"
+      >
+        <h2 class="font-semibold text-lg mb-1">Favorites</h2>
+        <p id="summary" class="text-sm text-stone-500 mb-4">
+          0 saved · 0 min total time
+        </p>
+        <ul id="fav-list" class="space-y-2 text-sm">
+          <li class="text-stone-400">No Favorites yet</li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer class="border-t border-amber-100 mt-8">
+      <p class="max-w-6xl mx-auto px-4 py-3 text-sm text-stone-600 text-center">
+        Habesha Recipes
+      </p>
+    </footer>
+  </body>
+</html>
