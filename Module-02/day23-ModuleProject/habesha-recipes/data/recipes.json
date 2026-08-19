@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "category": "Main",
+    "prepMinutes": 90,
+    "spicy": true,
+    "vegetarian": false,
+    "description": "Ethiopia's famous spicy chicken stew simmered in berbere sauce with hard-boiled eggs.",
+    "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400",
+    "ingredients": [
+      "1 whole chicken, cut into pieces",
+      "3 large onions, finely chopped",
+      "3 tbsp berbere spice",
+      "4 tbsp niter kibbeh (spiced butter)",
+      "4 hard-boiled eggs",
+      "4 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "Salt to taste"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Shiro Wat",
+    "category": "Vegetarian",
+    "prepMinutes": 35,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Smooth, spiced chickpea-flour stew — an everyday vegetarian favourite across Ethiopia.",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400",
+    "ingredients": [
+      "1 cup shiro powder (chickpea flour blend)",
+      "2 large onions, chopped",
+      "2 tbsp berbere",
+      "3 tbsp niter kibbeh or oil",
+      "3 cups water",
+      "2 cloves garlic",
+      "Salt to taste"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Injera",
+    "category": "Bread",
+    "prepMinutes": 30,
+    "spicy": false,
+    "vegetarian": true,
+    "description": "Sourdough flatbread made from teff flour — the base of almost every Habesha meal.",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400",
+    "ingredients": [
+      "2 cups teff flour",
+      "3 cups water",
+      "1/2 tsp salt",
+      "Starter or a pinch of yeast (optional)"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Kitfo",
+    "category": "Main",
+    "prepMinutes": 25,
+    "spicy": true,
+    "vegetarian": false,
+    "description": "Finely minced raw beef mixed with mitmita and niter kibbeh, often served with ayib.",
+    "image": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400",
+    "ingredients": [
+      "500g lean beef, finely minced",
+      "3 tbsp niter kibbeh",
+      "1–2 tsp mitmita",
+      "1/2 cup ayib (fresh cheese)",
+      "Salt to taste",
+      "Injera, to serve"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Firfir",
+    "category": "Breakfast",
+    "prepMinutes": 20,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Torn injera stir-fried with berbere, onions, and spices — a classic Ethiopian breakfast.",
+    "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400",
+    "ingredients": [
+      "2 pieces injera, torn into pieces",
+      "1 large onion, sliced",
+      "2 tbsp berbere",
+      "3 tbsp oil or niter kibbeh",
+      "1 tomato, chopped (optional)",
+      "Salt to taste"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Misir Wat",
+    "category": "Vegetarian",
+    "prepMinutes": 45,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Red lentil stew cooked with berbere and onions until thick and rich.",
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400",
+    "ingredients": [
+      "1.5 cups red lentils, rinsed",
+      "2 large onions, chopped",
+      "2 tbsp berbere",
+      "3 tbsp oil or niter kibbeh",
+      "3 cloves garlic, minced",
+      "4 cups water",
+      "Salt to taste"
+    ]
+  }
+]
