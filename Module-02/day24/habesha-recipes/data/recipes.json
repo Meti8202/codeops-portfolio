@@ -1,0 +1,147 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wat",
+    "category": "Main",
+    "prepMinutes": 90,
+    "spicy": true,
+    "vegetarian": false,
+    "description": "Ethiopia's famous spicy chicken stew simmered in berbere sauce with hard-boiled eggs.",
+    "image": "./images/Dorowat.jpg",
+    "ingredients": [
+      "1 whole chicken, cut into pieces",
+      "3 large onions, finely chopped",
+      "3 tbsp berbere",
+      "4 tbsp niter kibbeh",
+      "4 hard-boiled eggs",
+      "garlic, ginger, salt"
+    ],
+    "steps": [
+      "Marinate chicken with lemon juice.",
+      "Cook onions low and slow in niter kibbeh.",
+      "Add berbere, garlic, and ginger; cook until deep red.",
+      "Add chicken and simmer until tender.",
+      "Add eggs and serve with injera."
+    ]
+  },
+
+  {
+    "id": 2,
+    "name": "Shiro Wat",
+    "category": "Vegetarian",
+    "prepMinutes": 35,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Smooth, spiced chickpea-flour stew — an everyday vegetarian favorite across Ethiopia.",
+    "image": "./images/shiro.jpg",
+    "ingredients": [
+      "½ cup oil",
+      "½ cup chickpea flour",
+      "2 medium onions pureed",
+      "1 roma tomato pureed",
+      "4 cloves of garlic chopped",
+      "2 tablespoons niter kibbeh Ethiopian spiced clarified butter",
+      "2 to 2 ½ cups of water",
+      "3 tablespoons berbere spice",
+      "1 teaspoon garlic powder",
+      "Salt to taste"
+    ],
+    "steps": [
+      "Heat a heavy stockpot over medium heat.",
+      "Add pureed onions; sauté until dry and lightly colored, about 4–5 minutes.",
+      "Stir in oil and berbere; cook 1–2 minutes until fragrant.",
+      "Add tomato and garlic; sauté 2–3 minutes.",
+      "Whisk in chickpea flour and 2 cups water until smooth; add remaining ½ cup water if you prefer thinner shiro.",
+      "Bring to a simmer, then stir in niter kibbeh, garlic powder, and salt to taste.",
+      "Simmer on low 5–10 minutes until flavors combine and oil slightly separates.",
+      "Serve with fresh injera."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Injera",
+    "category": "Bread",
+    "prepMinutes": 30,
+    "spicy": false,
+    "vegetarian": true,
+    "description": "Sourdough flatbread made from teff flour — the base of almost every Habesha meal.",
+    "image": "./images/injera.jpg",
+    "ingredients": [
+      "2 cups teff flour",
+      "2 cups water",
+      "½ teaspoon salt",
+      "¼ teaspoon active dry yeast (or 1 cup starter)"
+    ],
+    "steps": [
+      "Mix teff, water, salt, and yeast in a bowl.",
+      "Cover and ferment at room temperature for 24–48 hours (or 4–6 hours with yeast).",
+      "Whisk batter until thin and pourable.",
+      "Heat a non-stick skillet over medium heat.",
+      "Pour a ladleful of batter, swirl to spread thin.",
+      "Cook until bubbles form and edges lift (about 2–3 minutes, do not flip).",
+      "Remove and stack between towels; serve with shiro."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Kitfo",
+    "category": "Main",
+    "prepMinutes": 25,
+    "spicy": true,
+    "vegetarian": false,
+    "description": "Finely minced raw beef mixed with mitmita and niter kibbeh, often served with ayib.",
+    "image": "./images/kitfo.jpg",
+    "ingredients": [
+      "1 lb lean beef (minced or finely chopped)",
+      "4 tablespoons niter kibbeh (Ethiopian spiced clarified butter)",
+      "1–2 tablespoons mitmita (Ethiopian chili powder blend)",
+      "Salt to taste"
+    ],
+    "steps": [
+      "Ensure beef is very fresh and finely minced or chopped.",
+      "In a bowl, combine beef, niter kibbeh, mitmita, and salt.",
+      "Mix thoroughly until butter and spices coat the meat evenly.",
+      "Serve immediately with ayib (Ethiopian cottage cheese) and gomen (collard greens), if desired."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Firfir",
+    "category": "Breakfast",
+    "prepMinutes": 20,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Torn injera stir-fried with berbere, onions, and spices — a classic Ethiopian breakfast.",
+    "image": "./images/firfir.jpg",
+    "ingredients": [
+      "4 cups torn injera (stale or fresh, roughly 2-inch pieces)",
+      "2 tablespoons niter kibbeh (Ethiopian spiced clarified butter)",
+      "1 medium onion, finely chopped",
+      "2 cloves garlic, minced",
+      "2 tablespoons berbere spice (adjust to taste)",
+      "1 cup water or beef/chicken stock",
+      "Salt to taste"
+    ],
+    "steps": [
+      "Heat niter kibbeh in a large skillet over medium heat.",
+      "Add onion and sauté until soft and translucent, about 5 minutes.",
+      "Add garlic and berbere; cook for 1–2 minutes until fragrant.",
+      "Pour in water or stock and bring to a simmer.",
+      "Add torn injera pieces and stir well to coat with the sauce.",
+      "Cook for 3–5 minutes until the injera softens and absorbs most of the liquid, stirring occasionally.",
+      "Season with salt to taste and serve warm."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Misir Wat",
+    "category": "Vegetarian",
+    "prepMinutes": 45,
+    "spicy": true,
+    "vegetarian": true,
+    "description": "Red lentil stew cooked with berbere and onions until thick and rich.",
+    "image": "./images/misir.jpg",
+    "ingredients": [],
+    "steps": []
+  }
+]
