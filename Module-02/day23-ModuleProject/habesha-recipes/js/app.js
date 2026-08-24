@@ -38,22 +38,14 @@ function isFavorite(id) {
 
 function recipeCard(r) {
   const fav = isFavorite(r.id);
-
-  let pills =
-    '<span class="inline-block text-xs font-medium bg-amber-800 text-amber-50 px-2.5 py-0.5 rounded-full">' +
-    r.category +
-    "</span>" +
-    '<span class="inline-block text-xs font-medium bg-amber-200 text-amber-950 px-2.5 py-0.5 rounded-full">' +
-    r.prepMinutes +
-    " min</span>";
-
-  if (r.spicy) {
-    pills +=
-      '<span class="inline-block text-xs font-medium bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full">Spicy</span>';
-  }
+  const spicy = r.spicy ? " · Spicy" : "";
+  const btnLabel = fav ? "★ Favorite" : "☆ Save";
+  const btnClass = fav
+    ? "bg-amber-200 text-amber-950"
+    : "bg-amber-800 text-white";
 
   return (
-    '<article class="bg-[#fffdf8] rounded-2xl border border-amber-100 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow" data-id="' +
+    '<article class="bg-white border border-amber-100 rounded-lg overflow-hidden" data-id="' +
     r.id +
     '">' +
     '<img src="' +
@@ -61,27 +53,34 @@ function recipeCard(r) {
     '" alt="' +
     r.name +
     '" class="h-40 w-full object-cover bg-amber-100" />' +
-    '<div class="p-5 flex flex-col gap-3 flex-1">' +
-    '<h2 class="font-serif text-2xl text-amber-950">' +
+    '<div class="p-4">' +
+    '<h2 class="text-xl font-semibold text-amber-950">' +
     r.name +
     "</h2>" +
-    '<div class="flex flex-wrap gap-1.5">' +
-    pills +
-    "</div>" +
-    '<p class="text-sm text-stone-600 line-clamp-2">' +
+    '<p class="text-xs text-stone-500 mt-1">' +
+    r.category +
+    " · " +
+    r.prepMinutes +
+    " min" +
+    spicy +
+    "</p>" +
+    '<p class="text-sm text-stone-600 mt-2">' +
     r.description +
     "</p>" +
-    '<button type="button" class="fav-btn mt-auto self-start text-sm font-medium px-4 py-2 rounded-full ' +
-    (fav
-      ? "bg-amber-200 text-amber-950 hover:bg-amber-300"
-      : "bg-amber-800 text-amber-50 hover:bg-amber-900") +
+    '<div class="mt-3">' +
+    '<button type="button" class="fav-btn text-sm px-3 py-1.5 rounded ' +
+    btnClass +
     '">' +
-    (fav ? "★ Favorite" : "☆ Save") +
+    btnLabel +
     "</button>" +
+    "</div>" +
     "</div>" +
     "</article>"
   );
 }
+
+
+
 function renderRecipes() {
   const list = getFiltered();
 
