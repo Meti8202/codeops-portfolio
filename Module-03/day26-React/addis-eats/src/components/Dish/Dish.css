@@ -1,0 +1,22 @@
+.dish {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fffbf2;
+  padding: 20px;
+  margin: 12px;
+  border-radius: 10px;
+}
+
+
+.dish h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.dish p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #8b4513;
+}
