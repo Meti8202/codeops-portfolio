@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.order-total {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b4513;
+}

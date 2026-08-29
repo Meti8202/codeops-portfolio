@@ -1,0 +1,71 @@
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dish-image img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background-color: #f0e6d8;
+}
+
+.dish-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.dish-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dish-price {
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b4513;
+}
+
+.badge {
+  font-size: 13px;
+  font-style: italic;
+  color: #c0392b;
+}
+
+.dish-category {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.dish-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.add-btn {
+  padding: 6px 14px;
+  background-color: rgb(68, 43, 10);
+  color: #eeccb5;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.add-btn:hover {
+  background-color: #5c3a12;
+}
+
+.count {
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b4513;
+}

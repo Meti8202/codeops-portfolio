@@ -1,0 +1,18 @@
+.header {
+  background-color: rgb(68, 43, 10);
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 32px;
+  color: #eeccb5;
+}
+
+
+.event {
+  display: flex;
+}
+

@@ -1,0 +1,44 @@
+export const dishes = [
+  {
+    id: 1,
+    name: "Doro Wat",
+    price: 240,
+    image: "Dorowat.jpg",
+    category: "Main",
+    spicy: true,
+  },
+  {
+    id: 2,
+    name: "Shiro",
+    price: 120,
+    image: "shiro.jpg",
+    category: "Main",
+    spicy: false,
+  },
+  {
+    id: 3,
+    name: "Firfir",
+    price: 120,
+    image: "firfir.jpg",
+    category: "Main",
+    spicy: true,
+  },
+  {
+    id: 4,
+    name: "Injera",
+    price: 50,
+    image: "injera.jpg",
+    category: "Side",
+    spicy: false,
+  },
+  {
+    id: 5,
+    name: "Kitfo",
+    price: 320,
+    image: "kitfo.jpg",
+    category: "Main",
+    spicy: true,
+  },
+];
+
+export const categories = ["All", "Main", "Side"];
