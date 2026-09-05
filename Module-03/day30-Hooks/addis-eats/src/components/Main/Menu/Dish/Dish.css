@@ -1,0 +1,90 @@
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dish-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background-color: #f0e6d8;
+}
+
+.dish-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 14px;
+  gap: 10px;
+}
+
+.dish-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #341914;
+}
+
+.dish-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #8b4513;
+  
+}
+
+.dish-cats {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-top: 6px;
+}
+
+.dish-category {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8b4513;
+  background-color: rgb(252, 231, 206);
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.badge {
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 600;
+  color: #c0392b;
+  background-color: #ffe6e4;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.dish-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto; 
+  padding-top: 16px;
+}
+
+.add-btn {
+  padding: 10px 16px;
+  background-color: #341914;
+  color: #eeccb5;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  
+}
+
+.add-btn:hover {
+  background-color: #4b1f17;
+}
+
+.count {
+  font-size: 15px;
+  font-weight: 600;
+  color: #8b4513;
+}

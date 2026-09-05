@@ -1,0 +1,23 @@
+.header {
+  background-color: #341914;
+  padding: 16px 24px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  color: #eeccb5;
+  margin: 0;
+}
+
+.cart-badge {
+  background-color: antiquewhite;
+  color: rgb(112, 38, 13);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
