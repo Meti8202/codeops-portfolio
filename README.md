@@ -3,179 +3,357 @@
 **IBT College Canada · Full Stack Software Development**  
 **Program:** CodeOps · 9 modules · 24 weeks · 120 days · 480 hours  
 **Cohort:** Ethiopia  
-**Status:** Day 17 of 120 · Module 02 in progress
+**Status:** Day 30 of 120 · Module 03 in progress
 
-Daily work from the CodeOps curriculum is pushed here. This README is updated as modules progress.
-
----
-
-### About
-
-This repository is my public learning log and project portfolio for **CodeOps** (IBT College Canada).
-
-- **Entry baseline:** variables, conditionals, loops, functions  
-- **Path:** Python fundamentals → HTML / CSS / JavaScript → React & Next.js → one backend track (Node/Nest, Go, or .NET) → databases → QA → DevOps → architecture → market-ready sprint  
-- **Habit:** every exercise and project is committed and pushed to GitHub from day one  
+Daily classwork, practice, notes and mini-projects from the CodeOps Full Stack Software Development curriculum.
 
 ---
 
-### Progress overview
+## About
+
+This repository is my public learning log and software development portfolio for the **CodeOps** program at IBT College Canada.
+
+I am building practical skills across frontend development, backend development, databases, testing, DevOps, software architecture and professional portfolio development.
+
+- **Entry baseline:** Variables, conditionals, loops and functions
+- **Learning path:** Python fundamentals → HTML, CSS, JavaScript → React and Next.js → backend development → databases → QA → DevOps → architecture → market-ready projects
+- **Practice habit:** Every exercise and project is committed and pushed to GitHub from day one
+- **Current focus:** React component design, hooks, state management, data fetching and reusable frontend patterns
+
+---
+
+## Progress overview
 
 | Module | Title | Days | Hours | Status |
-|--------|--------|------|-------|--------|
+|---|---|---:|---:|---|
 | 01 | Foundation: Git, Terminal, Python, OOP & DSA | 1–10 | 40 | ✅ Complete |
-| 02 | Frontend: HTML, CSS & JavaScript | 11–25 | 60 | 🔄 In progress (Day 17) |
-| 03 | Frontend: React & Next.js | 26–50 | 100 | ⏳ Upcoming |
-| 04 | Backend Track (Node/Nest · Go · .NET) | 51–75 | 100 | ⏳ Upcoming |
-| 05 | Databases (PostgreSQL, MongoDB, Neo4j) | 76–85 | 40 | ⏳ Upcoming |
+| 02 | Frontend: HTML, CSS & JavaScript | 11–25 | 60 | ✅ Complete |
+| 03 | Frontend: React & Next.js | 26–50 | 100 | 🔄 In progress — Day 30 |
+| 04 | Backend Track: Node/Nest, Go, or .NET | 51–75 | 100 | ⏳ Upcoming |
+| 05 | Databases: PostgreSQL, MongoDB & Neo4j | 76–85 | 40 | ⏳ Upcoming |
 | 06 | QA & Testing | 86–90 | 20 | ⏳ Upcoming |
 | 07 | DevOps & CI/CD | 91–100 | 40 | ⏳ Upcoming |
 | 08 | Software Architecture & Design | 101–105 | 20 | ⏳ Upcoming |
 | 09 | Market Ready Sprint | 106–120 | 60 | ⏳ Upcoming |
 
-**Current focus:** Module 02 — Functions, closures & higher-order functions (Day 17)  
-**Next:** Arrays, objects & modern JavaScript → DOM & events → async / APIs → weekly projects
+**Current focus:** Module 03 — React hooks deep dive and Week 1 mini-project: **Addis Eats**  
+**Next:** Additional React patterns, React Router, Next.js and the rest of Module 03
 
 ---
 
-### Repository structure
+## Repository structure
 
-```
+```text
 codeops-portfolio/
-├── Module-01/                          # Foundation (Python, Git, OOP, DSA)
-│   └── day01-… / day10-…               # dayXX-TopicName
-│       ├── main.py                     # in-class exercise
-│       ├── practice.py                 # practice drills
-│       └── project.py                  # mini-project (single file)
+├── Module-01/                                  # Foundation: Python, Git, OOP, DSA
+│   ├── day01-...
+│   └── day10-...
 │
-├── Module-02/                          # Frontend: HTML, CSS, JavaScript
+├── Module-02/                                  # Frontend: HTML, CSS, JavaScript
 │   ├── day11-HTML/
 │   ├── day12-Forms/
 │   ├── day13-CSS/
 │   ├── day14-Layout/
-│   │   ├── exercise/                   # in-class
-│   │   │   ├── images/
-│   │   │   ├── styles/
-│   │   │   └── index.html
-│   │   ├── practice/                   # practice drills
-│   │   │   ├── images/
-│   │   │   ├── styles/
-│   │   │   └── index.html
-│   │   ├── project/                    # mini-project
-│   │   │   ├── images/
-│   │   │   ├── styles/
-│   │   │   ├── index.html
-│   │   │   └── README.md
-│   │   └── README.md
 │   ├── day15-Responsive-Animations/
-│   ├── day16-Javascript/
-│   └── day17-Functions/
-│       ├── exercise/js/order.js        # Habesha Eatery order module
-│       ├── practice/script.js          # vat, counter, discountBy, HOF drills
-│       └── project/script.js           # TeleBirr loyalty points module
+│   ├── day16-JavaScript/
+│   ├── day17-Functions/
+│   └── day18-... / day25-...
 │
-├── Module-03/ … Module-09/             # added as the program advances
+├── Module-03/                                  # Frontend: React & Next.js
+│   ├── day26-React-Setup-JSX/
+│   ├── day27-Props-Rendering-Patterns/
+│   ├── day28-State-Events-useState/
+│   ├── day29-Side-Effects-useEffect-useRef/
+│   └── day30-Hooks-Deep-Dive/
+│       └── addis-eats/                         # Week 1 React mini-project
+│
+├── Module-04/                                  # Added as the program progresses
+├── Module-05/
+├── Module-06/
+├── Module-07/
+├── Module-08/
+├── Module-09/
 ├── README.md
 └── .gitignore
 ```
 
-#### Conventions
+### File conventions
 
-| Context | In-class | Practice | Mini-project |
-|---------|----------|----------|--------------|
-| **Python** (Module 01) | `main.py` | `practice.py` | `project.py` |
-| **HTML / CSS / JS** (Module 02+) | `/exercise` | `/practice` | `/project` |
-
-Each of `exercise/`, `practice/`, and `project/` keeps its own assets:
-
-- `index.html` (or other `.html` pages) inside that folder  
-- `images/` for media  
-- `styles/` (or `css/`) for CSS  
-- `js/` for JavaScript (from Day 16 onward)  
+| Context | In-class work | Practice | Mini-project |
+|---|---|---|---|
+| Python — Module 01 | `main.py` | `practice.py` | `project.py` |
+| HTML, CSS & JavaScript — Module 02 | `/exercise` | `/practice` | `/project` |
+| React — Module 03+ | Vite project in daily folder | Components and hook practice | Full React application |
 
 ---
 
-### Module 01 — Foundation (Days 1–10) ✅
+## Module 01 — Foundation
 
-**Topics:** Git & terminal · Python fundamentals · collections, files, errors · OOP (encapsulation, inheritance, polymorphism, abstraction) · SOLID & design patterns (Singleton, Factory, Observer) · DSA (linear structures, recursion, search/sort, trees/graphs/heaps) · Big-O
+**Days 1–10 · 40 hours · ✅ Complete**
 
-#### Larger project — Addis Bank
+**Topics:** Git, terminal, Python fundamentals, collections, files, errors, object-oriented programming, SOLID principles, design patterns, data structures and algorithms and Big-O notation.
 
-Grew day by day from a simple encapsulated account into a small banking system:
+### Larger project — Addis Bank
 
-| Day | What was added |
-|-----|----------------|
-| 4 | `Account` — private balance, `@property`, validated deposit/withdraw, `statement()` |
-| 5 | `SavingsAccount` (interest) & `CurrentAccount` (overdraft) + polymorphism |
-| 6 | SOLID refactor · `AccountFactory` · Observer alerts (`SMSAlert`, `AuditLog`) · `BankConfig` Singleton |
-| 7 | `AccountRegistry` (dict O(1) lookup + insertion order) · transaction history stack · `undo_last()` |
+The Addis Bank project grew day by day from a basic encapsulated bank account into a small object-oriented banking system.
 
-#### Notable exercises & mini-projects
+| Day | Feature added |
+|---:|---|
+| 4 | `Account` class with private balance, `@property`, validated deposits and withdrawals and account statements |
+| 5 | `SavingsAccount` with interest and `CurrentAccount` with overdraft support using inheritance and polymorphism |
+| 6 | SOLID refactor, `AccountFactory`, Observer alerts with `SMSAlert` and `AuditLog`, plus a `BankConfig` Singleton |
+| 7 | `AccountRegistry` using dictionary lookup, transaction history stack and `undo_last()` functionality |
 
-- **Day 2:** Bill split with tip · temperature labels · receipt loop · discount function · TeleBirr-style customer tier report  
-- **Day 3:** Transaction file summary (dict + sort + `try/except`) · pharmacy inventory with low-stock report  
-- **Days 7–9:** Big-O notes · list vs dict · Stack / Queue / LinkedList · recursion, search, sort, trees (as covered in class)
+### Notable exercises
+
+- Bill split calculator with tip support
+- Temperature label program
+- Receipt loop and discount calculator
+- TeleBirr-style customer tier report
+- Transaction file summary with dictionaries, sorting and `try/except`
+- Pharmacy inventory manager with low-stock reporting
+- Big-O notes and list-versus-dictionary comparison
+- Stack, queue, linked list, recursion, search, sort, trees, graphs and heaps practice
 
 ---
 
-### Module 02 — Frontend: HTML, CSS & JavaScript (Days 11–25) 🔄
+## Module 02 — Frontend
 
-**Stack so far:** HTML5 · CSS3 (Flexbox, Grid, responsive, transitions) · Tailwind · vanilla JavaScript (Days 16–17)
+**Days 11–25 · 60 hours · ✅ Complete**
 
-#### Days completed
+**Stack:** HTML5, CSS3, Flexbox, CSS Grid, responsive design, transitions, Tailwind CSS and vanilla JavaScript.
+
+### Days completed
 
 | Folder | Focus | Highlights |
-|--------|--------|------------|
-| `day11-HTML` | How the web works & HTML foundations | Semantic structure · `hello.html`, `shop.html` in practice |
-| `day12-Forms` | Forms, tables, media, accessibility | Inputs, ARIA, SEO basics |
+|---|---|---|
+| `day11-HTML` | How the web works and HTML foundations | Semantic HTML structure |
+| `day12-Forms` | Forms, tables, media, accessibility | Inputs, ARIA basics, SEO basics |
 | `day13-CSS` | CSS foundations | Selectors, box model, variables, typography |
-| `day14-Layout` | Flexbox & Grid | Complex layouts · exercise / practice / project each with own `images/` + `styles/` |
+| `day14-Layout` | Flexbox and Grid | Complex layouts using exercise, practice and project folders |
 | `day15-Responsive-Animations` | Responsive design, animation, Tailwind | Media queries, transitions, utility-first CSS |
-| `day16-Javascript` | JavaScript foundations | Types, coercion, template literals, control flow, loops |
-| `day17-Functions` | Functions, closures & higher-order functions | Declarations/arrows · private state · factories · callbacks |
+| `day16-JavaScript` | JavaScript foundations | Types, coercion, template literals, conditions, loops |
+| `day17-Functions` | Functions, closures, higher-order functions | Declarations, arrows, callbacks, factories, private state |
+| `day18`–`day25` | JavaScript continuation | Arrays, objects, DOM, events, async JavaScript, APIs |
 
-#### Day 17 work
+### Projects
 
-| Path | What it covers |
-|------|----------------|
-| `practice/script.js` | `vat` (default + arrow) · `makeCounter` closure · `discountBy` factory · `applyToAll` HOF · `forEach` / custom `myForEach` |
-| `exercise/js/order.js` | Habesha Eatery order module — `subtotal` (rest + loop) · `discountBy` · `withVat` · `toETB` · `makeReceiptMaker` (private order number) |
-| `project/script.js` | TeleBirr loyalty points — closure keeps balance private · `earn` / `redeem` / `balance` · earn-rule HOF (standard + holiday double) |
-
-#### Projects
-
-| Project | Location | Description |
-|---------|----------|-------------|
-| **EthioAirlines — Results** | Module-02 day project folders | Flight results UI: sticky navbar, filter sidebar, card grid, responsive layout, CSS variables |
-| **Habesha Eatery** | Module-02 day project folders | Restaurant site (Bole, Addis Ababa): menu cards, hero, about, reservation form. Built in plain CSS and with **Tailwind** |
-| **Habesha Eatery — Order module** | `day17-Functions/exercise` | Receipt maker with private order number, member discount, VAT, ETB formatting |
-| **TeleBirr loyalty points** | `day17-Functions/project` | Points balance via closure; swappable earn rules (standard / holiday double) |
-
-#### Day 16 practice
-
-- Tip + service-fee calculator (ETB / CBE Birr)  
-- FizzBuzz "Birr / TeleBirr" variant  
+| Project | Description |
+|---|---|
+| **EthioAirlines — Results** | Flight results interface with a sticky navbar, filter sidebar, card grid and responsive layout |
+| **Habesha Eatery** | Restaurant website for Bole, Addis Ababa, with menu cards, hero section, about section and reservation form |
+| **Habesha Eatery — Order module** | Receipt maker with private order number, membership discount, VAT and ETB currency formatting |
+| **TeleBirr loyalty points** | Closure-based points balance with swappable earning rules such as standard and holiday-double points |
 
 ---
 
-### How this program is taught
+## Module 03 — React & Next.js
 
-- Teach in class → deepen with a **reading assignment**  
-- Every reading ships with **exercises or a mini-project** (never reading alone)  
-- **Homework** every day (heavier early on to level a mixed intake)  
-- One **larger project** grows across each module  
-- **Git from day one** — daily push to GitHub  
+**Days 26–50 · 100 hours · 🔄 In progress**
+
+**Stack so far:** React 19, Vite, PropTypes, CSS Grid, Flexbox, `useState`, `useEffect`, `useRef`, `useContext`, `useReducer`, `useMemo` and custom hooks.
+
+### Days completed
+
+| Day | Focus | Highlights |
+|---:|---|---|
+| 26 | React setup and JSX | Vite + React project, JSX, header and dish components, rendering menu data with `map`, stable keys |
+| 27 | Props and rendering patterns | PropTypes, default props, reusable `Card` component with `children`, conditional spicy badge, category filter, empty state |
+| 28 | State and events with `useState` | Local dish count, lifted category state, running order total, controlled TeleBirr delivery form with validation |
+| 29 | Side effects with `useEffect` and `useRef` | Fetching menu data, loading and error states, `AbortController` cleanup patterns |
+| 30 | Hooks deep dive and Week 1 mini-project | Custom `useFetch`, `cartReducer`, `CartProvider`, `useContext`, `useMemo`, quantity-aware cart |
 
 ---
 
-### About me
+## Addis Eats mini-project
+
+**Week 1 mini-project · Day 30**
+
+Addis Eats is a React food-ordering application that brings together the React concepts learned during the first week of Module 03.
+
+### Features
+
+- Fetches menu data from `public/dishes.json`
+- Custom `useFetch` hook for reusable data-fetching logic
+- Handles loading, error and successful data states
+- Uses `AbortController` cleanup to cancel an unfinished request
+- Category filter for menu items
+- `useMemo` for filtering and preparing visible menu dishes
+- Pure `cartReducer` with `add`, `remove` and `clear` actions
+- Cart data shared through `CartContext`
+- `CartProvider` powered by `useReducer`
+- Memoised provider value to avoid unnecessary context updates
+- Header cart badge showing item count and total price
+- Sidebar checkout panel showing selected dishes and clear-cart action
+- Quantity-aware cart behavior for repeated additions of the same dish
+- Controlled delivery form with name, TeleBirr phone and address inputs
+- Live TeleBirr phone validation
+- Responsive desktop and mobile layout
+
+### React concepts demonstrated
+
+| Concept | Where it is used |
+|---|---|
+| `useState` | Selected category and delivery form state |
+| `useEffect` | Fetch lifecycle inside `useFetch` |
+| `useRef` | Covered during the Day 29 fetching and effects exercises |
+| Custom hook | `src/hooks/useFetch.js` |
+| `useReducer` | Cart transitions inside `CartProvider` |
+| `useContext` | Header, menu dish cards and sidebar checkout |
+| `useMemo` | Filtered menu dishes and memoised provider value |
+| PropTypes | Dish component props |
+| Component composition | `Card`, `Dish`, `CategoryBar`, `Sidebar`, `Header`, `Footer` |
+
+### Project structure
+
+```text
+addis-eats/
+├── public/
+│   ├── dishes.json
+│   └── images/
+│
+├── src/
+│   ├── cart/
+│   │   ├── CartContext.js
+│   │   ├── CartProvider.jsx
+│   │   ├── cartReducer.js
+│   │   └── useCart.js
+│   │
+│   ├── hooks/
+│   │   └── useFetch.js
+│   │
+│   ├── components/
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.css
+│   │   │
+│   │   ├── Main/
+│   │   │   ├── Main.jsx
+│   │   │   ├── Main.css
+│   │   │   │
+│   │   │   ├── Menu/
+│   │   │   │   ├── Menu.jsx
+│   │   │   │   ├── Menu.css
+│   │   │   │   ├── CategoryBar.jsx
+│   │   │   │   ├── CategoryBar.css
+│   │   │   │   ├── Dish.jsx
+│   │   │   │   ├── Dish.css
+│   │   │   │   ├── Card.jsx
+│   │   │   │   └── Card.css
+│   │   │   │
+│   │   │   └── Sidebar/
+│   │   │       ├── Sidebar.jsx
+│   │   │       ├── Sidebar.css
+│   │   │       ├── OrderForm.jsx
+│   │   │       └── OrderForm.css
+│   │   │
+│   │   └── Footer/
+│   │       ├── Footer.jsx
+│   │       └── Footer.css
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   ├── main.jsx
+│   └── index.css
+│
+├── package.json
+└── README.md
+```
+
+### Cart architecture
+
+The cart uses a reducer so that all cart state transitions are defined in one predictable, testable place.
+
+```js
+{
+  items: [
+    {
+      id: 1,
+      name: "Doro Wat",
+      price: 240,
+      category: "Main",
+      quantity: 2
+    }
+  ]
+}
+```
+
+Supported cart actions:
+
+```js
+dispatch({ type: "add", dish });
+dispatch({ type: "remove", id: dish.id });
+dispatch({ type: "clear" });
+```
+
+The total is derived from current cart state:
+
+```js
+const total = items.reduce(
+  (sum, item) => sum + item.price * item.quantity,
+  0
+);
+```
+
+### Run locally
+
+From the Addis Eats project directory:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local URL displayed by Vite, usually:
+
+```text
+http://localhost:5173
+```
+
+
+## How the program is taught
+
+- Concepts are taught in class and reinforced with reading assignments
+- Every reading assignment includes exercises or a mini-project
+- Homework is assigned daily
+- Larger projects grow throughout each module
+- Git and GitHub are used from the beginning
+- Work is committed and pushed regularly to build a public development record
+
+---
+
+## About me
 
 **Meti Guda**  
-CodeOps student · IBT College Canada (Ethiopia)
+Software engineering student and frontend developer in training  
+CodeOps student · IBT College Canada · Ethiopia
 
-Feedback and collaboration welcome.
+I am building practical frontend and full-stack development skills with HTML, CSS, JavaScript, React, Next.js, Python and Git. I am especially interested in creating responsive, user-friendly web applications and developing a strong professional software portfolio.
+
+Feedback, collaboration and constructive suggestions are welcome.
 
 ---
 
-*Last updated: Day 17 — Functions, Closures & Higher-Order Functions*  
+## Git workflow
+
+Typical daily workflow:
+
+```bash
+git status
+git add .
+git commit -m "feat: complete Day 30 Addis Eats hooks mini-project"
+git push
+```
+
+Example documentation update commit:
+
+```bash
+git add README.md
+git commit -m "docs: update portfolio README to Day 30 Module 03"
+git push
+```
+
+---
+
+*Last updated: Day 30 — Hooks Deep Dive · Week 1 mini-project: Addis Eats*  
 *Curriculum: CodeOps Full Stack Software Development · Version 2.0 · 2026*

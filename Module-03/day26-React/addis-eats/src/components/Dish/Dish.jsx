@@ -1,4 +1,3 @@
-import React from "react"
 import "./Dish.css"
 
 function Dish({ name, price }) {

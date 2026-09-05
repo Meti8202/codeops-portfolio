@@ -31,7 +31,7 @@ def reverseCompare(num):
      first_digit = num // 10 
      second_digit = num % 2 
      for reversed_number:
-          return 
+          return second_digit + first_digit
      if num > reversed_number:
           print("Ok")
      else:

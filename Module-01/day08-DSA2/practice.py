@@ -49,19 +49,19 @@ print(sorted_data)
 
 # *Two pointers. Write has_pair(nums, target) for a sorted list, returning whether two values sum to the target.
 def has_pair(nums, target):
-    left, right = 0, len(nums) - 1
-    
-    while left < right:
-        current_sum = nums[left] + nums[right]
-        
-        if current_sum == target:
-            return True
-        elif current_sum < target:
-            left += 1
-        else:
-            right -= 1
-            
-    return False
+     left, right = 0, len(nums) - 1
+     
+     while left < right:
+          current_sum = nums[left] + nums[right]
+          
+          if current_sum == target:
+               return True
+          elif current_sum < target:
+               left += 1
+          else:
+               right -= 1
+               
+     return False
 
 nums = [1, 2, 3, 4, 9]
 target = 10
@@ -94,7 +94,8 @@ def selection_sort(arr):
      for i in range(h):
           min_index = i
           for j in range(i + 1, h):
-               if arr[j] < arr[min_index]:                     min_index = j
+               if arr[j] < arr[min_index]:                     
+                    min_index = j
           arr[i], arr[min_index] = arr[min_index], arr[i]
 
      return arr
