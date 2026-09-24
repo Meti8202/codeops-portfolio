@@ -1,0 +1,44 @@
+.menu-page-heading {
+  margin-bottom: 1.5rem;
+}
+
+
+
+.menu-page-heading h1 {
+  margin: 0;
+  color: #7c2415;
+}
+
+.menu-page-heading p:last-child {
+  margin-bottom: 0;
+}
+
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.5rem 0;
+}
+
+.category-button {
+  padding: 0.55rem 0.95rem;
+  border: 1px solid #d7b998;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #5a3b2f;
+
+  font-weight: 700;
+}
+
+.category-button:hover,
+.category-button.active {
+  border-color: #7c2415;
+  background-color: #7c2415;
+  color: #ffffff;
+}
+
+.dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
