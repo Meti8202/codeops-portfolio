@@ -1,0 +1,53 @@
+:root {
+  font-family: "Times New Roman", Times, serif;
+  color: #2f241e;
+  background: #fffaf2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: #b94720;
+}
+
+.page {
+  min-height: 50vh;
+}
+
+.page h1 {
+  margin-top: 0;
+  color: #7c2415;
+}
+
+.page p {
+  max-width: 65ch;
+  line-height: 1.65;
+}
+
+.status-message,
+.empty-state {
+  padding: 2rem;
+  border: 1px solid #e7d7bf;
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin-top: 0;
+  color: #7c2415;
+}

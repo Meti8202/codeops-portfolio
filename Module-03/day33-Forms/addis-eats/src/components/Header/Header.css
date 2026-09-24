@@ -1,0 +1,245 @@
+.site-header {
+  border-bottom: 1px solid #eadfd7;
+  background: #503224;
+  color: #e5d7cf;
+}
+
+.header-content {
+  width: min(1440px, 100%);
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0.45rem clamp(1rem, 2.5vw, 2rem);
+  gap: clamp(0.8rem, 2vw, 1.8rem);
+}
+
+.brand {
+  min-width: 106px;
+  display: flex;
+  flex-direction: column;
+  color: #e5d7cf;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.02;
+  text-decoration: none;
+}
+
+.main-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 3.25rem);
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  color: #eadfd7;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #d8aa96;
+}
+
+.nav-link.active {
+  font-weight: 800;
+  text-decoration: underline ;
+}
+
+.cart-summary {
+  min-width: 145px;
+  display: grid;
+  grid-template-columns: 51px 1fr;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 11px;
+  background: #f5e2da;
+  color: #503224;
+  text-decoration: none;
+}
+
+.cart-summary-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.3rem 0;
+  border-radius: 9px;
+  background: #1f593d;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.cart-summary-count strong {
+  font-size: 1.05rem;
+}
+
+.cart-summary-count small {
+  margin-top: 0.15rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+
+.cart-summary-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.45rem 0.7rem;
+  line-height: 1;
+}
+
+.cart-summary-total small {
+  color: #80652f;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.cart-summary-total strong {
+  margin-top: 0.18rem;
+  color: #7b5b13;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.cart-summary:hover {
+  outline: 2px solid #d8aa96;
+  outline-offset: 2px;
+}
+
+.header-divider {
+  width: 3px;
+  height: 38px;
+  background: #e5d7cf;
+}
+
+.auth-links,
+.account-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #e5d7cf;
+}
+
+.sign-in-link {
+  display: flex;
+  flex-direction: column;
+  color: #332a28;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.sign-in-link:hover {
+  color: #dd9b84;
+}
+
+.register-link {
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+  background: #f5e2da;
+  color: #332a28;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  background: #ecd1c5;
+}
+
+.user-greeting {
+  color: #eadfd7;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.user-greeting strong {
+  color: #eadfd7;
+}
+
+.sign-out-button {
+  padding: 0.58rem 0.75rem;
+  border: 1px solid #d8b9a9;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #7b2518;
+
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.sign-out-button:hover {
+  border-color: #7b2518;
+  background: #d8aa96;
+  color: #ffffff;
+}
+
+@media (max-width: 1050px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .main-nav {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: center;
+    padding: 0.25rem 0 0.55rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-content {
+    gap: 0.7rem;
+  }
+
+  .brand {
+    min-width: auto;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+
+  .cart-summary {
+    min-width: 122px;
+    grid-template-columns: 44px 1fr;
+  }
+
+  .cart-summary-count strong {
+    font-size: 0.9rem;
+  }
+
+  .cart-summary-total strong {
+    font-size: 1rem;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .auth-links,
+  .account-actions {
+    gap: 0.6rem;
+  }
+
+  .register-link,
+  .sign-out-button {
+    padding: 0.55rem 0.65rem;
+  }
+}
