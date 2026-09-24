@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   useCartStore,
@@ -6,17 +8,9 @@ import {
   selectTotalPrice,
 } from "../../cart/cartStore";
 import { useAuth } from "../../auth/useAuth";
-import { validate, AREAS } from "../../checkout/validate";
+import { checkoutSchema, AREAS } from "../../checkout/schema";
 import { placeOrder } from "../../api/orders";
-import Field from "../../checkout/Field";
 import "./CheckoutPage.css";
-
-const initialForm = {
-  name: "",
-  phone: "",
-  area: "",
-  notes: "",
-};
 
 function CheckoutPage() {
   const items = useCartStore((s) => s.items);
@@ -26,107 +20,95 @@ function CheckoutPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState(() => ({
-    ...initialForm,
-    name: user?.name || "",
-    phone: user?.phone || "",
-  }));
-  const [touched, setTouched] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [serverError, setServerError] = useState("");
-  const [serverFieldErrors, setServerFieldErrors] = useState({});
-  const [orderDone, setOrderDone] = useState(false);
+  const [orderComplete, setOrderComplete] = useState(false);
+  const [completedOrder, setCompletedOrder] = useState(null);
 
-  const errors = validate(form);
-  const allErrors = { ...errors, ...serverFieldErrors };
-  const hasErrors = Object.keys(allErrors).length > 0;
+  const {
+    register,
+    handleSubmit,
+    setError,
+    setFocus,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm({
+    resolver: zodResolver(checkoutSchema),
+    defaultValues: {
+      name: user?.name || "",
+      phone: user?.phone || "",
+      area: "",
+      notes: "",
+    },
+    mode: "onBlur",
+  });
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-    setServerError("");
-    setServerFieldErrors((prev) => {
-      if (!prev[name]) return prev;
-      const next = { ...prev };
-      delete next[name];
-      return next;
-    });
-  }
-
-  function handleBlur(e) {
-    const { name } = e.target;
-    setTouched((t) => ({ ...t, [name]: true }));
-  }
-
-  function showError(field) {
-    return (touched[field] || submitted) && allErrors[field];
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitted(true);
-    setServerError("");
-    setServerFieldErrors({});
-
-    const nextErrors = validate(form);
-    if (Object.keys(nextErrors).length > 0) {
-      const first = Object.keys(nextErrors)[0];
-      document.getElementById(first)?.focus();
-      return;
-    }
-
-    if (submitting) return;
-
-    setSubmitting(true);
+  async function onValid(data) {
     try {
-      await placeOrder(form, items);
+      await placeOrder(data, items);
+      setCompletedOrder(data);
+      setOrderComplete(true);
       clearCart();
-      setOrderDone(true);
     } catch (err) {
       if (err.status === 422 && err.fieldErrors) {
-        setServerFieldErrors(err.fieldErrors);
+        Object.entries(err.fieldErrors).forEach(([field, message]) => {
+          setError(field, { type: "server", message });
+        });
         const first = Object.keys(err.fieldErrors)[0];
-        document.getElementById(first)?.focus();
-      } else {
-        setServerError(
-          err.message || "Couldn't place order. Please try again."
-        );
+        if (first) setFocus(first);
+        return;
       }
-    } finally {
-      setSubmitting(false);
+      setError("root", {
+        type: "server",
+        message: err.message || "Could not place the order. Please try again.",
+      });
     }
+  }
+
+  function onInvalid(formErrors) {
+    const first = Object.keys(formErrors)[0];
+    if (first) setFocus(first);
   }
 
   function handleNewOrder() {
-    setOrderDone(false);
-    setSubmitted(false);
-    setTouched({});
-    setForm({
-      ...initialForm,
+    setOrderComplete(false);
+    setCompletedOrder(null);
+    reset({
       name: user?.name || "",
       phone: user?.phone || "",
+      area: "",
+      notes: "",
     });
     navigate("/menu");
   }
 
-  if (orderDone) {
+  // Success stays until the user clicks "Start a new order"
+  if (orderComplete && completedOrder) {
     return (
       <section className="checkout-page">
         <section className="order-success-card">
           <h1>Thank you for your order!</h1>
           <p>
-            We will contact you on the phone number you provided to confirm delivery details.
+            We will contact you on the phone number you provided to confirm
+            delivery details.
           </p>
           <div className="success-details">
             <p>
               <span>Name</span>
-              <strong>{form.name}</strong>
+              <strong>{completedOrder.name}</strong>
+            </p>
+            <p>
+              <span>Phone</span>
+              <strong>{completedOrder.phone}</strong>
             </p>
             <p>
               <span>Delivery area</span>
-              <strong>{form.area}</strong>
+              <strong>{completedOrder.area}</strong>
             </p>
+            {completedOrder.notes ? (
+              <p>
+                <span>Notes</span>
+                <strong>{completedOrder.notes}</strong>
+              </p>
+            ) : null}
           </div>
           <button
             type="button"
@@ -152,80 +134,61 @@ function CheckoutPage() {
       </header>
 
       <div className="checkout-layout">
-        <form className="checkout-form" onSubmit={handleSubmit} noValidate>
+        <form
+          className="checkout-form"
+          onSubmit={handleSubmit(onValid, onInvalid)}
+          noValidate
+        >
           <h2>Delivery details</h2>
 
-          {submitted && hasErrors && (
-            <div className="error-summary" role="alert">
-              <p>Please fix {Object.keys(allErrors).length} field(s):</p>
-              <ul>
-                {Object.entries(allErrors).map(([field, message]) => (
-                  <li key={field}>
-                    <a href={`#${field}`}>{message}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {serverError && (
+          {errors.root && (
             <p className="field-error" role="alert">
-              {serverError}
+              {errors.root.message}
             </p>
           )}
 
-          <Field id="name" label="Full name" error={showError("name")}>
+          <div className="checkout-field">
+            <label htmlFor="name">Full name</label>
             <input
               id="name"
-              name="name"
               type="text"
-              value={form.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
               autoComplete="name"
-              aria-invalid={Boolean(showError("name"))}
-              aria-describedby={
-                showError("name") ? "name-error" : undefined
-              }
+              aria-invalid={Boolean(errors.name)}
+              aria-describedby={errors.name ? "name-error" : undefined}
+              {...register("name")}
             />
-          </Field>
+            {errors.name && (
+              <p id="name-error" className="field-error" role="alert">
+                {errors.name.message}
+              </p>
+            )}
+          </div>
 
-          <Field
-            id="phone"
-            label="TeleBirr phone"
-            error={showError("phone")}
-          >
+          <div className="checkout-field">
+            <label htmlFor="phone">TeleBirr phone</label>
             <input
               id="phone"
-              name="phone"
               type="tel"
-              value={form.phone}
-              onChange={handleChange}
-              onBlur={handleBlur}
               placeholder="09xxxxxxxx or +2519xxxxxxxx"
               autoComplete="tel"
-              aria-invalid={Boolean(showError("phone"))}
-              aria-describedby={
-                showError("phone") ? "phone-error" : undefined
-              }
+              aria-invalid={Boolean(errors.phone)}
+              aria-describedby={errors.phone ? "phone-error" : undefined}
+              {...register("phone")}
             />
-          </Field>
+            {errors.phone && (
+              <p id="phone-error" className="field-error" role="alert">
+                {errors.phone.message}
+              </p>
+            )}
+          </div>
 
-          <Field
-            id="area"
-            label="Delivery area"
-            error={showError("area")}
-          >
+          <div className="checkout-field">
+            <label htmlFor="area">Delivery area</label>
             <select
               id="area"
-              name="area"
-              value={form.area}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              aria-invalid={Boolean(showError("area"))}
-              aria-describedby={
-                showError("area") ? "area-error" : undefined
-              }
+              aria-invalid={Boolean(errors.area)}
+              aria-describedby={errors.area ? "area-error" : undefined}
+              {...register("area")}
             >
               <option value="">Choose an area</option>
               {AREAS.map((area) => (
@@ -234,34 +197,36 @@ function CheckoutPage() {
                 </option>
               ))}
             </select>
-          </Field>
+            {errors.area && (
+              <p id="area-error" className="field-error" role="alert">
+                {errors.area.message}
+              </p>
+            )}
+          </div>
 
-          <Field
-            id="notes"
-            label="Order notes (optional)"
-            error={showError("notes")}
-          >
+          <div className="checkout-field">
+            <label htmlFor="notes">Order notes (optional)</label>
             <textarea
               id="notes"
-              name="notes"
-              value={form.notes}
-              onChange={handleChange}
-              onBlur={handleBlur}
               rows="3"
               placeholder="e.g. mild spice, call when you arrive"
-              aria-invalid={Boolean(showError("notes"))}
-              aria-describedby={
-                showError("notes") ? "notes-error" : undefined
-              }
+              aria-invalid={Boolean(errors.notes)}
+              aria-describedby={errors.notes ? "notes-error" : undefined}
+              {...register("notes")}
             />
-          </Field>
+            {errors.notes && (
+              <p id="notes-error" className="field-error" role="alert">
+                {errors.notes.message}
+              </p>
+            )}
+          </div>
 
           <button
             type="submit"
             className="checkout-primary-button"
-            disabled={submitting}
+            disabled={isSubmitting}
           >
-            {submitting
+            {isSubmitting
               ? "Sending your order…"
               : `Place order — ${totalPrice} ETB`}
           </button>
