@@ -1,0 +1,199 @@
+.dish-detail-page {
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  color: #7c2415;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #b94720;
+  text-decoration: underline;
+}
+
+.dish-detail-card {
+  overflow: hidden;
+  border: 1px solid #e7d7bf;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgb(58 32 24 / 7%);
+}
+
+.dish-detail-hero {
+  width: 100%;
+  height: 240px;
+  background: #f2dfc5;
+}
+
+.dish-detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dish-detail-content {
+  padding: 1.15rem 1.25rem 1.4rem;
+}
+
+.dish-detail-category {
+  margin: 0;
+  color: #b94720;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dish-detail-content h1 {
+  margin: 0.35rem 0 0.15rem;
+  color: #7c2415;
+  font-size: clamp(1.25rem, 3.5vw, 1.65rem);
+}
+
+.dish-detail-amharic-mobile {
+  margin: 0;
+  color: #6d5145;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.dish-detail-tagline {
+  margin: 0.65rem 0;
+  color: #7c2415;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.dish-detail-description {
+  margin: 0.85rem 0;
+  color: #5a4a40;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.dish-detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.dish-detail-meta div {
+  display: flex;
+  min-height: 64px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 8px;
+  background: #fff6e9;
+}
+
+.meta-label {
+  color: #755d4e;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dish-detail-meta strong {
+  color: #3a2018;
+  font-size: 0.9rem;
+}
+
+.ingredients-section {
+  margin-top: 1.15rem;
+}
+
+.ingredients-section h2 {
+  margin: 0 0 0.55rem;
+  color: #7c2415;
+  font-size: 1.05rem;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredients-list li {
+  padding: 0.3rem 0.55rem;
+  border: 1px solid #e7d7bf;
+  border-radius: 999px;
+  background: #fffaf2;
+  color: #5a3b2f;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dish-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+  align-items: center;
+}
+
+.add-detail-cart-button {
+  padding: 0.55rem 0.9rem;
+  border-radius: 7px;
+  background-color: #7c2415;
+  border: 1px solid #7c2415;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.add-detail-cart-button:hover {
+  border-color: #b94720;
+  background: #b94720;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border-radius: 7px;
+  background-color: #7c2415;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.menu-button:hover {
+  background: #b94720;
+}
+
+@media (min-width: 720px) {
+  .dish-detail-card {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+
+  .dish-detail-hero {
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dish-detail-hero {
+    height: 180px;
+  }
+
+  .dish-detail-meta {
+    grid-template-columns: 1fr;
+  }
+}

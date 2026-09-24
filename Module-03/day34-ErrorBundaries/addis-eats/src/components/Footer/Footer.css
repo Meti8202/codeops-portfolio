@@ -1,0 +1,10 @@
+.site-footer {
+  background: #3a2018;
+  color: #fffaf2;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}

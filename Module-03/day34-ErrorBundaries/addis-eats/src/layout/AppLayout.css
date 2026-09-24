@@ -1,0 +1,12 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  width: min(1120px, 92%);
+  flex: 1;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+}
