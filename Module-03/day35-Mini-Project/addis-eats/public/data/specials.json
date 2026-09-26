@@ -1,0 +1,101 @@
+{
+  "status": "ok",
+  "data": [
+    {
+      "id": "menu-1",
+      "slug": "doro-wat",
+      "nameEn": "Classic Doro Wat",
+      "nameAm": "የዶሮ ወጥ",
+      "category": "Traditional Stews & Wat",
+      "priceETB": 650,
+      "spiceLevel": "Fiery Berbere (3/3)",
+      "isFasting": false,
+      "isSpecial": true,
+      "description": "Slow-simmered highland chicken simmered in rich caramelized shallots, 12-spice berbere, and organic niter kibbeh with a hard-boiled egg.",
+      "ingredients": [
+        "Free-range chicken",
+        "Berbere",
+        "Niter Kibbeh",
+        "Farm Egg",
+        "Red Onions",
+        "Garlic",
+        "Ginger"
+      ],
+      "servings": "Serves 1-2 generously"
+    },
+    {
+      "id": "menu-6",
+      "slug": "siga-derek-tibs",
+      "nameEn": "Crisp Siga Derek Tibs",
+      "nameAm": "የደረቅ ስጋ ጥብስ",
+      "tagline": "Crispy pan-fried prime beef with Awaze",
+      "category": "Tibs & Grills",
+      "priceETB": 620,
+      "spiceLevel": "Chef Signature Crisp",
+      "isFasting": false,
+      "isSpecial": true,
+      "description": "Pan-charred pasture beef chunks seared with garden rosemary sprigs, seared jalapeño rounds, served with house Awaze dip.",
+      "ingredients": [
+        "Prime Tenderloin Beef",
+        "Rosemary",
+        "Jalapeño",
+        "Garlic",
+        "Awaze Paste"
+      ],
+      "servings": "Serves 1"
+    },
+    {
+      "id": "menu-10",
+      "slug": "prime-beef-kitfo",
+      "nameEn": "Prime Beef Kitfo",
+      "nameAm": "የከብት ስጋ ክትፎ",
+      "category": "Raw & Cured Delicacies / Kitfo",
+      "priceETB": 720,
+      "spiceLevel": "Choice: Leb-Leb or Raw",
+      "isFasting": false,
+      "isSpecial": true,
+      "description": "Finely minced extra-lean tenderloin beef steeped in warm aromatic herbal butter and fiery orange mitmita spice blend.",
+      "ingredients": [
+        "Top sirloin",
+        "Niter Kibbeh",
+        "Mitmita",
+        "Cardamom seed powder"
+      ],
+      "servings": "Serves 1"
+    },
+    {
+      "id": "menu-13",
+      "slug": "full-vegan-beyaynetu",
+      "nameEn": "Full Vegan Beyaynetu Platter",
+      "nameAm": "የጾም በያይነቱ ድልድል",
+      "category": "Fasting & Vegan / Tsom",
+      "priceETB": 480,
+      "spiceLevel": "Varied Spices (1-2/3)",
+      "isFasting": true,
+      "isSpecial": true,
+      "description": "Grand rainbow tasting platter of Misir Wat, Kik Alicha, braised Gomen, sweet Fosolia with carrots, and Atakilt Wat.",
+      "ingredients": [
+        "Lentils",
+        "Split peas",
+        "Collard greens",
+        "Carrots & Green beans",
+        "Cabbage & Potatoes"
+      ],
+      "servings": "Serves 1-2 generously"
+    },
+    {
+      "id": "menu-18",
+      "slug": "house-tej-carafe",
+      "nameEn": "House Fermented Tej (500ml Carafe)",
+      "nameAm": "የማር ጠጅ",
+      "category": "Beverages & Tej",
+      "priceETB": 350,
+      "spiceLevel": "Pure Sweet Ferment",
+      "isFasting": true,
+      "isSpecial": true,
+      "description": "Traditional golden mead naturally fermented for 21 days with pure highland wildflower honey and bitter gesho wood.",
+      "ingredients": ["Pure Wild Honey", "Gesho Wood", "Spring Water"],
+      "servings": "500ml Flask (11% ABV)"
+    }
+  ]
+}
