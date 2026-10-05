@@ -21,7 +21,7 @@ export default function Dishlist({ dishes }) {
                               </div>
                               <div className="p-4">
                                    <h2 className="font-semibold text-lg">{dish.nameEn}</h2>
-                                   <p className="text-sm text-stone-600 line-clamp-2">
+                                   <p className="text-sm text-stone-600">
                                         {dish.description}
                                    </p>
                                    <p className="mt-2 font-medium text-amber-800">

@@ -1,5 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
+import Providers from "./providers";
+
 
 export default function RootLayout({ children }) {
   return (
@@ -16,9 +18,11 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
 
-        <main className="flex-1 max-w-5xl mx-auto p-6 w-full">{children}</main>
+        <main className="flex-1 max-w-5xl mx-auto p-6 w-full">
+          <Providers>{children}</Providers>
+        </main>
 
-        <footer className="bg-amber-800 text-stone-300 text-sm px-6 py-4">
+        <footer className="bg-stone-800 text-stone-300 text-sm px-6 py-4">
           <div className="max-w-5xl mx-auto">© Addis Eats</div>
         </footer>
       </body>
