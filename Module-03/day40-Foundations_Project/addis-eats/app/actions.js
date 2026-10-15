@@ -5,13 +5,15 @@ import { orderSchema } from "@/data/schema";
 import { createOrder, getOrder, markCancelled, getSession } from "@/data/db";
 
 export async function placeOrder(prevState, formData) {
-  const parsed = orderSchema.safeParse({
-    name: formData.get("name"),
-    phone: formData.get("phone"),
-    dishId: formData.get("dishId") || undefined,
-    quantity: formData.get("quantity") ? Number(formData.get("quantity")) : 1,
-    notes: formData.get("notes") || undefined,
-  });
+  const raw = {
+    name: formData.get("name")?.toString().trim() || "",
+    phone: formData.get("phone")?.toString().trim() || "",
+    dishId: formData.get("dishId")?.toString() || undefined,
+    quantity: formData.get("quantity") || 1,
+    notes: formData.get("notes")?.toString().trim() || undefined,
+  };
+
+  const parsed = orderSchema.safeParse(raw);
 
   if (!parsed.success) {
     return {
@@ -20,26 +22,20 @@ export async function placeOrder(prevState, formData) {
   }
 
   const order = await createOrder(parsed.data);
-  revalidatePath("/orders"); // or whatever path lists orders
+  revalidatePath("/checkout");
   return { id: order.id, success: true };
 }
 
+// cancelOrder stays the same as you already have
 export async function cancelOrder(orderId) {
   const user = await getSession();
-  if (!user) {
-    throw new Error("Not signed in");
-  }
+  if (!user) throw new Error("Not signed in");
 
   const order = await getOrder(orderId);
-  if (!order) {
-    throw new Error("Order not found");
-  }
-
-  if (order.userId !== user.id) {
-    throw new Error("Not yours");
-  }
+  if (!order) throw new Error("Order not found");
+  if (order.userId !== user.id) throw new Error("Not yours");
 
   await markCancelled(orderId);
-  revalidatePath("/orders");
+  revalidatePath("/checkout");
   return { success: true };
 }

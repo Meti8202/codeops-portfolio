@@ -7,12 +7,10 @@ import { useCart } from "../providers";
 
 export default function CheckoutPage() {
   const [state, formAction, pending] = useActionState(placeOrder, null);
-  const { clearCart } = useCart();
+  const { items, totalETB, clearCart } = useCart();
 
   useEffect(() => {
-    if (state?.success) {
-      clearCart();
-    }
+    if (state?.success) clearCart();
   }, [state?.success, clearCart]);
 
   return (
@@ -23,6 +21,31 @@ export default function CheckoutPage() {
         <p className="mb-4 text-green-700">
           Order placed! ID: {state.id}. Your cart has been cleared.
         </p>
+      )}
+
+      {/* Cart summary */}
+      {items.length > 0 ? (
+        <div className="mb-6 border rounded-lg p-4 bg-white">
+          <h2 className="font-semibold mb-2">Your order</h2>
+          <ul className="text-sm space-y-1 mb-2">
+            {items.map((item) => (
+              <li key={item.id}>
+                {item.quantity} × {item.nameEn} —{" "}
+                {item.quantity * item.priceETB} ETB
+              </li>
+            ))}
+          </ul>
+          <p className="font-medium">Total: {totalETB} ETB</p>
+        </div>
+      ) : (
+        !state?.success && (
+          <p className="mb-6 text-stone-600">
+            Cart is empty.{" "}
+            <Link href="/menu" className="text-amber-800 underline">
+              Browse menu
+            </Link>
+          </p>
+        )
       )}
 
       <form action={formAction} className="space-y-4 max-w-md">

@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Day 40 – Endpoints & verification
+
+| Method | Path               | Status codes | Notes |
+|--------|--------------------|--------------|-------|
+| GET    | `/api/dishes`      | 200          | List of dishes |
+| GET    | `/api/dishes/[id]` | 200 / 404    | Single dish or `{ error: "No such dish" }` |
+| POST   | `/api/orders`      | 201 / 422    | Shared Zod schema; `fieldErrors` on failure |
+
+Server actions:
+- `placeOrder` – validates, creates order, revalidates
+- `cancelOrder` – checks session + ownership
+
+```bash
+# after npm run build && npm run start
+curl localhost:3000/api/dishes
+curl -i localhost:3000/api/dishes/not-a-dish
+curl -i -X POST localhost:3000/api/orders \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Almaz","phone":"0912"}'
