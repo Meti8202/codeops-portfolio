@@ -15,18 +15,15 @@ export default function Providers({ children }) {
      const [items, setItems] = useState([]);
      const [ready, setReady] = useState(false);
 
-     // Load from localStorage once on the client
      useEffect(() => {
           try {
                const raw = localStorage.getItem(STORAGE_KEY);
                if (raw) setItems(JSON.parse(raw));
           } catch {
-               // ignore bad data
           }
           setReady(true);
      }, []);
 
-     // Persist whenever items change (after first load)
      useEffect(() => {
           if (!ready) return;
           localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
