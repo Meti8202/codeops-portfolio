@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import AddToCartButton from "./AddToCartButton";
 
 export default function Dishlist({ dishes }) {
      return (
@@ -7,9 +8,9 @@ export default function Dishlist({ dishes }) {
                {dishes.map((dish) => (
                     <li
                          key={dish.id}
-                         className="border rounded-xl overflow-hidden bg-white shadow-sm"
+                         className="border rounded-xl overflow-hidden bg-white shadow-sm flex flex-col"
                     >
-                         <Link href={`/menu/${dish.slug}`}>
+                         <Link href={`/menu/${dish.slug}`} className="flex-1">
                               <div className="relative h-48 bg-stone-200">
                                    <Image
                                         src={`/images/${dish.image}`}
@@ -21,14 +22,16 @@ export default function Dishlist({ dishes }) {
                               </div>
                               <div className="p-4">
                                    <h2 className="font-semibold text-lg">{dish.nameEn}</h2>
-                                   <p className="text-sm text-stone-600">
-                                        {dish.description}
-                                   </p>
+                                   <p className="text-sm text-stone-600">{dish.description}</p>
                                    <p className="mt-2 font-medium text-amber-800">
                                         {dish.priceETB} ETB
                                    </p>
                               </div>
                          </Link>
+
+                         <div className="px-4 pb-4">
+                              <AddToCartButton dish={dish} />
+                         </div>
                     </li>
                ))}
           </ul>

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import menuData from "../../../data/menu.json";
+import AddToCartButton from "../AddToCartButton";
 
 export async function generateStaticParams() {
   return menuData.data.map((dish) => ({
@@ -39,6 +40,8 @@ export default async function DishPage({ params }) {
         {dish.priceETB} ETB
       </p>
       <p className="mt-4 text-stone-600">{dish.description}</p>
+
+      <AddToCartButton dish={dish} />
     </article>
   );
 }
