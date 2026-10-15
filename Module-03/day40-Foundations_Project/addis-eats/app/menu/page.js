@@ -9,7 +9,7 @@ export default async function MenuPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Our Menu</h1>
+      <h1 className="text-3xl font-bold mb-8 tracking-tight">Our Menu</h1>
       <MenuClient categories={categories} dishes={dishes} />
     </div>
   );

@@ -10,17 +10,23 @@ export default function CheckoutPage() {
   const { items, totalETB, clearCart } = useCart();
 
   useEffect(() => {
-    if (state?.success) clearCart();
+    if (state?.success) {
+      clearCart();
+    }
   }, [state?.success, clearCart]);
 
   if (state?.success) {
     return (
-      <div>
-        <h1 className="text-3xl font-bold mb-4">Checkout</h1>
-        <p className="mb-4 text-green-700">
-          Order placed! ID: {state.id}. Your cart has been cleared.
+      <div className="max-w-lg mx-auto text-center py-16 space-y-5">
+        <h1 className="text-3xl font-bold">Order placed</h1>
+        <p className="text-green-700 text-lg">
+          Success! Order ID: <span className="font-bold">{state.id}</span>
         </p>
-        <Link href="/menu" className="text-amber-800 underline">
+        <p className="text-[var(--muted)]">Your cart has been cleared.</p>
+        <Link
+          href="/menu"
+          className="inline-block bg-[var(--brand)] text-white px-6 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] transition"
+        >
           Back to menu
         </Link>
       </div>
@@ -29,12 +35,15 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <div>
-        <h1 className="text-3xl font-bold mb-4">Checkout</h1>
-        <p className="text-stone-600 mb-6">
+      <div className="max-w-lg mx-auto text-center py-16 space-y-5">
+        <h1 className="text-3xl font-bold">Checkout</h1>
+        <p className="text-[var(--muted)]">
           Your cart is empty. Add dishes before checking out.
         </p>
-        <Link href="/menu" className="text-amber-800 underline">
+        <Link
+          href="/menu"
+          className="inline-block bg-[var(--brand)] text-white px-6 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] transition"
+        >
           Browse menu
         </Link>
       </div>
@@ -42,80 +51,90 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Checkout</h1>
+    <div className="max-w-xl">
+      <h1 className="text-3xl font-bold mb-8">Checkout</h1>
 
-      <div className="mb-6 border rounded-lg p-4 bg-white">
-        <h2 className="font-semibold mb-2">Your order</h2>
-        <ul className="text-sm space-y-1 mb-2">
+      <div className="mb-8 border border-[var(--line)] rounded-2xl p-5 bg-white shadow-sm">
+        <h2 className="font-bold mb-3">Your order</h2>
+        <ul className="text-sm space-y-2 mb-4">
           {items.map((item) => (
-            <li key={item.id}>
-              {item.quantity} × {item.nameEn} — {item.quantity * item.priceETB}{" "}
-              ETB
+            <li key={item.id} className="flex justify-between gap-4">
+              <span>
+                {item.quantity} × {item.nameEn}
+              </span>
+              <span className="font-medium shrink-0">
+                {item.quantity * item.priceETB} ETB
+              </span>
             </li>
           ))}
         </ul>
-        <p className="font-medium">Total: {totalETB} ETB</p>
+        <p className="font-bold text-lg border-t border-[var(--line)] pt-3">
+          Total: {totalETB} ETB
+        </p>
       </div>
 
-      <form action={formAction} className="space-y-4 max-w-md">
+      <form action={formAction} className="space-y-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">
+          <label htmlFor="name" className="block text-sm font-semibold mb-1">
             Name
           </label>
           <input
             id="name"
             name="name"
-            className="mt-1 w-full border rounded px-3 py-2"
+            className="w-full border border-[var(--line)] rounded-xl px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30"
             required
           />
           {state?.fieldErrors?.name && (
-            <p role="alert" className="text-red-600 text-sm mt-1">
+            <p role="alert" className="text-red-600 text-sm mt-1.5">
               {state.fieldErrors.name[0]}
             </p>
           )}
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium">
+          <label htmlFor="phone" className="block text-sm font-semibold mb-1">
             Phone
           </label>
           <input
             id="phone"
             name="phone"
-            className="mt-1 w-full border rounded px-3 py-2"
+            className="w-full border border-[var(--line)] rounded-xl px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30"
             placeholder="09xxxxxxxx or +2519xxxxxxxx"
             required
           />
           {state?.fieldErrors?.phone && (
-            <p role="alert" className="text-red-600 text-sm mt-1">
+            <p role="alert" className="text-red-600 text-sm mt-1.5">
               {state.fieldErrors.phone[0]}
             </p>
           )}
         </div>
 
         <div>
-          <label htmlFor="notes" className="block text-sm font-medium">
-            Notes (optional)
+          <label htmlFor="notes" className="block text-sm font-semibold mb-1">
+            Notes{" "}
+            <span className="font-normal text-[var(--muted)]">(optional)</span>
           </label>
           <textarea
             id="notes"
             name="notes"
-            rows={2}
-            className="mt-1 w-full border rounded px-3 py-2"
+            rows={3}
+            className="w-full border border-[var(--line)] rounded-xl px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-[var(--brand)]/30"
           />
         </div>
 
         <button
           type="submit"
           disabled={pending}
-          className="bg-amber-800 text-white px-5 py-2 rounded-lg disabled:opacity-50"
+          className="w-full sm:w-auto bg-[var(--brand)] text-white px-8 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] disabled:opacity-50 transition"
         >
           {pending ? "Sending…" : "Place order"}
         </button>
       </form>
 
-      <Link href="/cart" className="text-amber-800 underline mt-6 inline-block">
+      <Link
+        href="/cart"
+        className="inline-block mt-8 text-[var(--brand)] font-medium hover:underline"
+      >
         ← Back to cart
       </Link>
     </div>

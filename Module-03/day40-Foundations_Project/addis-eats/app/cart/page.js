@@ -8,38 +8,41 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div>
-        <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
-        <p className="text-stone-600 mb-6">Cart is empty.</p>
-        <Link href="/menu" className="text-amber-800 underline">
-          Continue browsing menu
+      <div className="max-w-lg mx-auto text-center py-16 space-y-4">
+        <h1 className="text-3xl font-bold">Your Cart</h1>
+        <p className="text-[var(--muted)]">Nothing here yet.</p>
+        <Link
+          href="/menu"
+          className="inline-block bg-[var(--brand)] text-white px-6 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] transition"
+        >
+          Browse menu
         </Link>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
+    <div className="max-w-2xl">
+      <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
 
-      <ul className="space-y-4 mb-8">
+      <ul className="space-y-3 mb-8">
         {items.map((item) => (
           <li
             key={item.id}
-            className="flex justify-between items-center border-b pb-3"
+            className="flex justify-between items-center bg-white border border-[var(--line)] rounded-2xl px-5 py-4 shadow-sm"
           >
             <div>
-              <p className="font-medium">{item.nameEn}</p>
-              <p className="text-sm text-stone-600">
+              <p className="font-bold">{item.nameEn}</p>
+              <p className="text-sm text-[var(--muted)]">
                 {item.quantity} × {item.priceETB} ETB
               </p>
             </div>
-            <div className="flex items-center gap-4">
-              <p className="font-medium">{item.quantity * item.priceETB} ETB</p>
+            <div className="flex items-center gap-5">
+              <p className="font-bold">{item.quantity * item.priceETB} ETB</p>
               <button
                 type="button"
                 onClick={() => removeItem(item.id)}
-                className="text-sm text-red-700 underline"
+                className="text-sm font-medium text-red-700 hover:underline"
               >
                 Remove
               </button>
@@ -48,18 +51,22 @@ export default function CartPage() {
         ))}
       </ul>
 
-      <p className="text-xl font-bold mb-6">Total: {totalETB} ETB</p>
-
-      <div className="flex gap-4">
-        <Link href="/menu" className="text-amber-800 underline">
-          Continue browsing menu
-        </Link>
-        <Link
-          href="/checkout"
-          className="bg-amber-800 text-white px-5 py-2 rounded-lg"
-        >
-          Checkout
-        </Link>
+      <div className="bg-white border border-[var(--line)] rounded-2xl px-5 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+        <p className="text-xl font-bold">Total: {totalETB} ETB</p>
+        <div className="flex gap-3">
+          <Link
+            href="/menu"
+            className="px-5 py-2.5 rounded-full border border-[var(--line)] font-medium hover:bg-[var(--cream-dark)] transition"
+          >
+            Keep browsing
+          </Link>
+          <Link
+            href="/checkout"
+            className="px-5 py-2.5 rounded-full bg-[var(--brand)] text-white font-bold hover:bg-[var(--brand-dark)] transition"
+          >
+            Checkout
+          </Link>
+        </div>
       </div>
     </div>
   );

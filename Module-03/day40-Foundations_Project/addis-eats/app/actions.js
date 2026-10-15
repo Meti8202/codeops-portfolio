@@ -26,7 +26,6 @@ export async function placeOrder(prevState, formData) {
   return { id: order.id, success: true };
 }
 
-// cancelOrder stays the same as you already have
 export async function cancelOrder(orderId) {
   const user = await getSession();
   if (!user) throw new Error("Not signed in");

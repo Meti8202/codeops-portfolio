@@ -22,9 +22,9 @@ export default function AddToCartButton({ dish }) {
           <button
                type="button"
                onClick={handleClick}
-               className={`w-full mt-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${added
+               className={`w-full mt-2 px-4 py-2.5 rounded-full text-sm font-bold transition-colors ${added
                     ? "bg-green-700 text-white"
-                    : "bg-amber-800 text-white"
+                    : "bg-[var(--brand)] text-white hover:bg-[var(--brand-dark)]"
                     }`}
           >
                {added ? "Added to cart ✓" : "Add to order"}
