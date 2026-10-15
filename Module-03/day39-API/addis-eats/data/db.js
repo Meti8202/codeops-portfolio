@@ -8,7 +8,8 @@ const mockDishes = [
   {
     id: "dish_1",
     name: "Doro Wat",
-    description: "Traditional spicy chicken stew served with injera and boiled egg.",
+    description:
+      "Traditional spicy chicken stew served with injera and boiled egg.",
     price: 350,
     currency: "ETB",
     category: "Main",
@@ -80,13 +81,12 @@ export async function getDish(id) {
  */
 export async function createOrder(data) {
   const newOrder = {
-    id: ord_${Math.floor(100 + Math.random() * 900)},
+    id: `ord_${Math.floor(100 + Math.random() * 900)}`,
     ...data,
     status: "PENDING",
     userId: mockSessionUser.id,
     createdAt: new Date().toISOString(),
   };
-
   mockOrders.push(newOrder);
   return newOrder;
 }
@@ -107,7 +107,6 @@ export async function markCancelled(id) {
   if (!order) {
     throw new Error("Order not found");
   }
-
   order.status = "CANCELLED";
   order.updatedAt = new Date().toISOString();
   return order;
