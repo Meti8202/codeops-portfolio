@@ -1,12 +1,22 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getOrder } from "@/lib/db";
+import { getSession } from "@/lib/session";
 import Status from "./Status";
 
 export default async function OrderPage({ params }) {
+  const user = await getSession();
+  if (!user) {
+    redirect("/signin");
+  }
+
   const { id } = await params;
   const order = await getOrder(id);
 
   if (!order) {
+    notFound();
+  }
+
+  if (order.userId && order.userId !== user.id && user.role !== "staff") {
     notFound();
   }
 
