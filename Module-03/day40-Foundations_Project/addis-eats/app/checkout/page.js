@@ -1,18 +1,28 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import Link from "next/link";
 import { placeOrder } from "../actions";
+import { useCart } from "../providers";
 
 export default function CheckoutPage() {
   const [state, formAction, pending] = useActionState(placeOrder, null);
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    if (state?.success) {
+      clearCart();
+    }
+  }, [state?.success, clearCart]);
 
   return (
     <div>
       <h1 className="text-3xl font-bold mb-4">Checkout</h1>
 
       {state?.success && (
-        <p className="mb-4 text-green-700">Order placed! ID: {state.id}</p>
+        <p className="mb-4 text-green-700">
+          Order placed! ID: {state.id}. Your cart has been cleared.
+        </p>
       )}
 
       <form action={formAction} className="space-y-4 max-w-md">

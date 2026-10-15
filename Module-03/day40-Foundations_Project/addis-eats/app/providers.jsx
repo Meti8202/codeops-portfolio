@@ -1,8 +1,9 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext(null);
+const STORAGE_KEY = "addis-eats-cart";
 
 export function useCart() {
      const ctx = useContext(CartContext);
@@ -12,6 +13,24 @@ export function useCart() {
 
 export default function Providers({ children }) {
      const [items, setItems] = useState([]);
+     const [ready, setReady] = useState(false);
+
+     // Load from localStorage once on the client
+     useEffect(() => {
+          try {
+               const raw = localStorage.getItem(STORAGE_KEY);
+               if (raw) setItems(JSON.parse(raw));
+          } catch {
+               // ignore bad data
+          }
+          setReady(true);
+     }, []);
+
+     // Persist whenever items change (after first load)
+     useEffect(() => {
+          if (!ready) return;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+     }, [items, ready]);
 
      function addItem(dish) {
           setItems((prev) => {
@@ -31,6 +50,7 @@ export default function Providers({ children }) {
 
      function clearCart() {
           setItems([]);
+          localStorage.removeItem(STORAGE_KEY);
      }
 
      const totalETB = items.reduce(
@@ -38,9 +58,11 @@ export default function Providers({ children }) {
           0
      );
 
+     const itemCount = items.reduce((sum, i) => sum + i.quantity, 0);
+
      return (
           <CartContext.Provider
-               value={{ items, addItem, removeItem, clearCart, totalETB }}
+               value={{ items, addItem, removeItem, clearCart, totalETB, itemCount }}
           >
                {children}
           </CartContext.Provider>
