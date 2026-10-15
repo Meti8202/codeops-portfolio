@@ -1,5 +1,5 @@
 import menuData from "../../data/menu.json";
-import MenuClient from "./MenuClient";
+import MenuWithSearch from "./MenuWithSearch";
 
 export const revalidate = 1500;
 
@@ -10,7 +10,7 @@ export default async function MenuPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8 tracking-tight">Our Menu</h1>
-      <MenuClient categories={categories} dishes={dishes} />
+      <MenuWithSearch categories={categories} />
     </div>
   );
 }

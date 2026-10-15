@@ -20,7 +20,7 @@ export default function Dishlist({ dishes }) {
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                    />
                               </div>
-                              <div className="bg-(--accent) px-4 py-2">
+                              <div className="bg-[var(--accent)]  px-4 py-2">
                                    <h2 className="font-bold text-stone-900 uppercase text-sm tracking-wide">
                                         {dish.nameEn}
                                    </h2>
