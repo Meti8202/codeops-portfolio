@@ -17,9 +17,7 @@ export default async function SignInPage({ searchParams }) {
   return (
     <div className="max-w-md mx-auto">
       <h1 className="text-3xl font-bold mb-2">Sign in</h1>
-      <p className="text-[var(--muted)] mb-8">
-        Use a demo phone number.
-      </p>
+     
       <SignInForm next={next} />
     </div>
   );

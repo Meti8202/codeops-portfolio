@@ -29,7 +29,7 @@ export default function SignInForm({ next }) {
                </div>
 
                <p className="text-xs text-[var(--muted)]">
-                    Demo: 0911121314 (customer) · 0900000000 (staff)
+                    0911121314 (customer) ,     0900000000 (staff)
                </p>
 
                <button
