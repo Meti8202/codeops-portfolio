@@ -1,16 +1,25 @@
 import "./globals.css";
 import Link from "next/link";
+import { Inter } from "next/font/google";
 import Providers from "./providers";
 import Cart from "./menu/Cart";
 import { getSession } from "@/lib/session";
 import { signOut } from "./actions";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
 export default async function RootLayout({ children }) {
   const user = await getSession();
 
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col bg-[var(--cream)] text-[var(--ink)]">
+    <html lang="en" className={inter.variable}>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col bg-[var(--cream)] text-[var(--ink)]`}
+      >
         <Providers>
           <header className="bg-[var(--brand)] text-amber-50 px-6 py-4 shadow-md">
             <nav className="max-w-5xl mx-auto flex items-center justify-between">
