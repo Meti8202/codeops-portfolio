@@ -52,7 +52,6 @@ export async function placeOrder(prevState, formData) {
     ...parsed.data,
     userId: user.id,
   });
-
   revalidatePath("/checkout");
   return { id: order.id, success: true };
 }

@@ -23,12 +23,20 @@ export default function CheckoutPage() {
           Success! Order ID: <span className="font-bold">{state.id}</span>
         </p>
         <p className="text-[var(--muted)]">Your cart has been cleared.</p>
-        <Link
-          href="/menu"
-          className="inline-block bg-[var(--brand)] text-white px-6 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] transition"
-        >
-          Back to menu
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href={`/orders/${state.id}`}
+            className="inline-block bg-[var(--brand)] text-white px-6 py-3 rounded-full font-bold hover:bg-[var(--brand-dark)] transition"
+          >
+            Track order
+          </Link>
+          <Link
+            href="/menu"
+            className="inline-block border border-[var(--line)] px-6 py-3 rounded-full font-medium hover:bg-[var(--cream-dark)] transition"
+          >
+            Back to menu
+          </Link>
+        </div>
       </div>
     );
   }
@@ -72,6 +80,15 @@ export default function CheckoutPage() {
           Total: {totalETB} ETB
         </p>
       </div>
+
+      {state?.error && (
+        <p role="alert" className="text-red-600 text-sm mb-4">
+          {state.error}{" "}
+          <Link href="/signin?next=/checkout" className="underline">
+            Sign in
+          </Link>
+        </p>
+      )}
 
       <form action={formAction} className="space-y-5">
         <div>

@@ -2,8 +2,12 @@ import "./globals.css";
 import Link from "next/link";
 import Providers from "./providers";
 import Cart from "./menu/Cart";
+import { getSession } from "@/lib/session";
+import { signOut } from "./actions";
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const user = await getSession();
+
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-[var(--cream)] text-[var(--ink)]">
@@ -14,7 +18,7 @@ export default function RootLayout({ children }) {
                 <Link href="/" className="font-bold text-2xl tracking-tight">
                   Addis Eats
                 </Link>
-                <div className="hidden sm:flex gap-6 text-sm font-medium">
+                <div className="hidden sm:flex gap-6 text-sm font-medium items-center">
                   <Link
                     href="/menu"
                     className="hover:text-amber-200 transition"
@@ -28,11 +32,44 @@ export default function RootLayout({ children }) {
                   >
                     Checkout
                   </Link>
+                  {user?.role === "staff" && (
+                    <Link
+                      href="/kitchen"
+                      className="hover:text-amber-200 transition"
+                    >
+                      Kitchen
+                    </Link>
+                  )}
                 </div>
               </div>
-              <div className="sm:hidden flex gap-4 text-sm">
-                <Link href="/menu">Menu</Link>
-                <Cart />
+
+              <div className="flex items-center gap-4 text-sm">
+                {user ? (
+                  <>
+                    <span className="hidden sm:inline text-amber-100/80">
+                      {user.name}
+                    </span>
+                    <form action={signOut}>
+                      <button
+                        type="submit"
+                        className="hover:text-amber-200 transition"
+                      >
+                        Sign out
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <Link
+                    href="/signin"
+                    className="hover:text-amber-200 transition"
+                  >
+                    Sign in
+                  </Link>
+                )}
+                <div className="sm:hidden flex gap-4">
+                  <Link href="/menu">Menu</Link>
+                  <Cart />
+                </div>
               </div>
             </nav>
           </header>
