@@ -30,6 +30,7 @@ export default async function DishPage({ params }) {
           alt={dish.nameEn}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 672px"
           priority
         />
       </div>

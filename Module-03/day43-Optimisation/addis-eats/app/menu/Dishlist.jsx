@@ -17,14 +17,16 @@ export default function Dishlist({ dishes }) {
                                         alt={dish.nameEn}
                                         fill
                                         className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                    />
                               </div>
-                              <div className="bg-[var(--accent)]  px-4 py-2">
+                              <div className="bg-[var(--accent)] px-4 py-2">
                                    <h2 className="font-bold text-stone-900 uppercase text-sm tracking-wide">
                                         {dish.nameEn}
                                    </h2>
-                                   <p className="font-semibold text-stone-800">{dish.priceETB} ETB</p>
+                                   <p className="font-semibold text-stone-800">
+                                        {dish.priceETB} ETB
+                                   </p>
                               </div>
                               <div className="p-4 pt-2">
                                    <p className="text-sm text-stone-600 line-clamp-2">

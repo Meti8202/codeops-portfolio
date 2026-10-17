@@ -39,7 +39,7 @@ export default function HomePage() {
           </Link>
         </div>
         <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {specials.map((dish) => (
+          {specials.map((dish, index) => (
             <li
               key={dish.id}
               className="rounded-2xl overflow-hidden bg-white shadow-md border border-[var(--line)] flex flex-col"
@@ -51,7 +51,8 @@ export default function HomePage() {
                     alt={dish.nameEn}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                    priority={index === 0}
                   />
                 </div>
                 <div className="bg-[var(--accent)] px-4 py-2.5">
