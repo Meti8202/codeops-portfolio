@@ -1,6 +1,12 @@
 import menuData from "../../data/menu.json";
 import MenuWithSearch from "./MenuWithSearch";
 
+export const metadata = {
+  title: "Menu",
+  description:
+    "Browse our full menu of stews, tibs, kitfo, vegan platters, and tej.",
+};
+
 export const revalidate = 1500;
 
 export default async function MenuPage() {

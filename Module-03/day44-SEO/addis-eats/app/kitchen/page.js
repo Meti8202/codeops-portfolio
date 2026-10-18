@@ -2,6 +2,11 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Kitchen",
+  description: "Staff kitchen view for Addis Eats orders.",
+};
+
 export default async function KitchenPage() {
   const user = await getSession();
 

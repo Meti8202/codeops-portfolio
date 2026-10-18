@@ -2,11 +2,32 @@ import Link from "next/link";
 import Image from "next/image";
 import menuData from "../data/menu.json";
 
+export const metadata = {
+  title: "Home",
+  description:
+    "Order Ethiopian wats, tibs, and fasting dishes. Flavors from Addis, at your door.",
+};
+
 export default function HomePage() {
   const specials = menuData.data.slice(0, 3);
 
+  const restaurantLd = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    name: "Addis Eats",
+    description:
+      "Authentic Ethiopian flavors delivered — wats, tibs, kitfo, and fasting dishes.",
+    servesCuisine: "Ethiopian",
+    url: process.env.NEXT_PUBLIC_APP_URL || "https://addiseats.et",
+  };
+
   return (
     <div className="space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(restaurantLd) }}
+      />
+
       <section className="rounded-3xl bg-[var(--brand)] text-amber-50 px-8 py-14 shadow-lg overflow-hidden relative">
         <div className="relative z-10 max-w-xl space-y-5">
           <p className="text-amber-200 text-sm font-semibold tracking-widest uppercase">
