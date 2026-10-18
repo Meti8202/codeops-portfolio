@@ -10,6 +10,34 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const dish = menuData.data.find((d) => d.slug === id);
+
+  if (!dish) {
+    return { title: "Dish not found" };
+  }
+
+  const description =
+    dish.description?.slice(0, 155) ||
+    `${dish.nameEn} — ${dish.priceETB} ETB at Addis Eats`;
+
+  return {
+    title: dish.nameEn,
+    description,
+    openGraph: {
+      title: dish.nameEn,
+      description,
+      images: [
+        {
+          url: `/images/${dish.image}`,
+          alt: dish.nameEn,
+        },
+      ],
+    },
+  };
+}
+
 export default async function DishPage({ params }) {
   const { id } = await params;
   const dish = menuData.data.find((d) => d.slug === id);
@@ -18,8 +46,27 @@ export default async function DishPage({ params }) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MenuItem",
+    name: dish.nameEn,
+    description: dish.description,
+    image: `/images/${dish.image}`,
+    offers: {
+      "@type": "Offer",
+      price: dish.priceETB,
+      priceCurrency: "ETB",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <Link href="/menu" className="text-amber-800 text-sm mb-4 inline-block">
         ← Back to menu
       </Link>
