@@ -6,7 +6,6 @@ const Card = ({ children }) => {
   return (
     <div className="card">
       {children}
-      {/* <OrderButton /> */}
     </div>
 
   )

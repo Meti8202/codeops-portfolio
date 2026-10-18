@@ -80,7 +80,6 @@ function CheckoutPage() {
     navigate("/menu");
   }
 
-  // Success stays until the user clicks "Start a new order"
   if (orderComplete && completedOrder) {
     return (
       <section className="checkout-page">

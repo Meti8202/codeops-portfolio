@@ -1,0 +1,32 @@
+{
+  "name": "codeops-portfolio",
+  "version": "1.0.0",
+  "description": "**IBT College Canada · Full Stack Software Development**  \r **Program:** CodeOps · 9 modules · 24 weeks · 120 days · 480 hours  \r **Cohort:** Ethiopia  \r **Status:** Day 17 of 120 · Module 02 in progress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meti8202/codeops-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Meti8202/codeops-portfolio/issues"
+  },
+  "homepage": "https://github.com/Meti8202/codeops-portfolio#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-error-boundary": "^6.1.6",
+    "react-router-dom": "^7.18.3",
+    "vite": "^8.2.2",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  }
+}

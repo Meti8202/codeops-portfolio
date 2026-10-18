@@ -8,3 +8,16 @@ node_modules/
 # build output and system files
 dist/
 .DS_Store
+.vscode/settings.json
+Module-03/.vscode/settings.json
+.gitignore
+.gitignore
+Module-02/day24/habesha-recipes/index.html
+Module-02/day24/habesha-recipes/README.md
+Module-02/day24/habesha-recipes/js/app.js
+Module-02/day24/habesha-recipes/js/app.js
+Module-03/day28-State/addis-eats/src/components/Main/Menu/Card/Card.jsx
+Module-03/day30-Hooks/addis-eats/src/components/Main/Menu/Dish/Dish.css
+Module-02/day24/habesha-recipes/js/app.js
+Module-03/day28-State/addis-eats/src/components/Main/Menu/Card/Card.jsx
+Module-03/day28-State/addis-eats/src/components/Main/Menu/Card/Card.jsx
