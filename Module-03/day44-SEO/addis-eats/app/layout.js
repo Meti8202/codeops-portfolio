@@ -12,6 +12,23 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL || "https://addiseats.et",
+  ),
+  title: {
+    default: "Addis Eats",
+    template: "%s | Addis Eats",
+  },
+  description:
+    "Authentic Ethiopian flavors delivered — wats, tibs, kitfo, and fasting dishes from Addis.",
+  openGraph: {
+    type: "website",
+    locale: "en_ET",
+    siteName: "Addis Eats",
+  },
+};
+
 export default async function RootLayout({ children }) {
   const user = await getSession();
 
