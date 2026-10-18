@@ -17,10 +17,12 @@ export default function MenuWithSearch({ categories }) {
           setPage(1);
      }, []);
 
-     const key =
-          query || activeCategory || page > 1
-               ? `/api/dishes?q=${encodeURIComponent(query)}&page=${page}`
-               : `/api/dishes?page=${page}`;
+     const params = new URLSearchParams();
+     params.set("page", String(page));
+     if (query) params.set("q", query);
+     if (activeCategory) params.set("category", activeCategory);
+
+     const key = `/api/dishes?${params.toString()}`;
 
      const { data, error, isLoading } = useSWR(key, fetcher, {
           keepPreviousData: true,
@@ -28,10 +30,6 @@ export default function MenuWithSearch({ categories }) {
 
      const dishes = data?.items ?? [];
      const totalPages = data?.totalPages ?? 1;
-
-     const filtered = activeCategory
-          ? dishes.filter((d) => d.category === activeCategory)
-          : dishes;
 
      return (
           <div>
@@ -55,7 +53,11 @@ export default function MenuWithSearch({ categories }) {
                               <p className="text-[var(--muted)] mb-4">Loading menu…</p>
                          )}
 
-                         <Dishlist dishes={filtered} />
+                         {!isLoading && dishes.length === 0 && (
+                              <p className="text-[var(--muted)] mb-4">No dishes found.</p>
+                         )}
+
+                         <Dishlist dishes={dishes} />
 
                          {totalPages > 1 && (
                               <div className="mt-8 flex items-center justify-center gap-4">
