@@ -1,57 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Addis Eats
 
-## Getting Started
+Ethiopian restaurant ordering app built with **Next.js App Router**
 
-First, run the development server:
+## Live
+
+**Production:** https://codeops-portfolio-eight.vercel.app
+
+## Features (Days 41–44)
+
+| Area | What |
+|------|------|
+| **Auth** | Sign in / sign out, httpOnly session cookie, middleware, page checks, action ownership |
+| **Live data** | Debounced menu search (SWR), polled order status with `fallbackData` |
+| **Performance** | `next/image` sizes + priority, self-hosted font, measured in PERF.md |
+| **SEO** | Metadata, Open Graph images, JSON-LD, sitemap, robots |
+
+## Demo accounts
+
+| Role | Phone |
+|------|--------|
+| Customer (Almaz) | `0911121314` |
+| Customer (Bereket) | `0911223344` |
+| Staff | `0900000000` |
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-## Day 40 – Endpoints & verification
-
-| Method | Path               | Status codes | Notes |
-|--------|--------------------|--------------|-------|
-| GET    | `/api/dishes`      | 200          | List of dishes |
-| GET    | `/api/dishes/[id]` | 200 / 404    | Single dish or `{ error: "No such dish" }` |
-| POST   | `/api/orders`      | 201 / 422    | Shared Zod schema; `fieldErrors` on failure |
-
-Server actions:
-- `placeOrder` – validates, creates order, revalidates
-- `cancelOrder` – checks session + ownership
-
-```bash
-# after npm run build && npm run start
-curl localhost:3000/api/dishes
-curl -i localhost:3000/api/dishes/not-a-dish
-curl -i -X POST localhost:3000/api/orders \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Almaz","phone":"0912"}'
