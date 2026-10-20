@@ -24,9 +24,7 @@ export default function OrderTable({ orders, sort, dir, page, totalPages }) {
           <div className="space-y-4">
                <div className="overflow-x-auto border border-[var(--line)] rounded-2xl bg-white shadow-sm">
                     <table className="w-full text-sm text-left">
-                         <caption className="caption-bottom p-3 text-[var(--muted)] text-xs">
-                              Orders · click a column header to sort
-                         </caption>
+
                          <thead className="bg-[var(--cream-dark)]">
                               <tr>
                                    <th scope="col" className="px-4 py-3 font-semibold">

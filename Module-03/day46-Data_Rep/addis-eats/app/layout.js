@@ -59,12 +59,26 @@ export default async function RootLayout({ children }) {
                     Checkout
                   </Link>
                   {user?.role === "staff" && (
-                    <Link
-                      href="/kitchen"
-                      className="hover:text-amber-200 transition"
-                    >
-                      Kitchen
-                    </Link>
+                    <>
+                      <Link
+                        href="/dashboard"
+                        className="hover:text-amber-200 transition"
+                      >
+                        Dashboard
+                      </Link>
+                      <Link
+                        href="/kitchen"
+                        className="hover:text-amber-200 transition"
+                      >
+                        Kitchen
+                      </Link>
+                      <Link
+                        href="/orders"
+                        className="hover:text-amber-200 transition"
+                      >
+                        Orders
+                      </Link>
+                    </>
                   )}
                 </div>
               </div>
