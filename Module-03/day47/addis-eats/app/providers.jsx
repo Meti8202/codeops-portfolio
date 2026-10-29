@@ -20,6 +20,7 @@ export default function Providers({ children }) {
                const raw = localStorage.getItem(STORAGE_KEY);
                if (raw) setItems(JSON.parse(raw));
           } catch {
+               // ignore corrupt storage
           }
           setReady(true);
      }, []);
@@ -45,6 +46,17 @@ export default function Providers({ children }) {
           setItems((prev) => prev.filter((i) => i.id !== id));
      }
 
+     function updateQuantity(id, nextQty) {
+          const qty = Math.max(0, Number(nextQty) || 0);
+          if (qty === 0) {
+               removeItem(id);
+               return;
+          }
+          setItems((prev) =>
+               prev.map((i) => (i.id === id ? { ...i, quantity: qty } : i))
+          );
+     }
+
      function clearCart() {
           setItems([]);
           localStorage.removeItem(STORAGE_KEY);
@@ -59,7 +71,15 @@ export default function Providers({ children }) {
 
      return (
           <CartContext.Provider
-               value={{ items, addItem, removeItem, clearCart, totalETB, itemCount }}
+               value={{
+                    items,
+                    addItem,
+                    removeItem,
+                    updateQuantity,
+                    clearCart,
+                    totalETB,
+                    itemCount,
+               }}
           >
                {children}
           </CartContext.Provider>

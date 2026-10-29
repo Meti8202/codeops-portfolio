@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCart } from "../providers";
 
 export default function CartPage() {
-  const { items, removeItem, totalETB } = useCart();
+  const { items, removeItem, updateQuantity, totalETB } = useCart();
 
   if (items.length === 0) {
     return (
@@ -29,16 +29,43 @@ export default function CartPage() {
         {items.map((item) => (
           <li
             key={item.id}
-            className="flex justify-between items-center bg-white border border-[var(--line)] rounded-2xl px-5 py-4 shadow-sm"
+            className="flex justify-between items-center bg-white border border-[var(--line)] rounded-2xl px-5 py-4 shadow-sm gap-4"
           >
-            <div>
-              <p className="font-bold">{item.nameEn}</p>
+            <div className="min-w-0">
+              <p className="font-bold truncate">{item.nameEn}</p>
               <p className="text-sm text-[var(--muted)]">
-                {item.quantity} × {item.priceETB} ETB
+                {item.priceETB} ETB each
               </p>
             </div>
-            <div className="flex items-center gap-5">
-              <p className="font-bold">{item.quantity * item.priceETB} ETB</p>
+
+            <div className="flex items-center gap-3 shrink-0">
+              {/* Quantity controls */}
+              <div className="flex items-center border border-[var(--line)] rounded-full overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  className="w-9 h-9 flex items-center justify-center text-lg font-medium hover:bg-[var(--cream-dark)] transition"
+                  aria-label={`Decrease quantity of ${item.nameEn}`}
+                >
+                  −
+                </button>
+                <span className="w-8 text-center text-sm font-semibold tabular-nums">
+                  {item.quantity}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  className="w-9 h-9 flex items-center justify-center text-lg font-medium hover:bg-[var(--cream-dark)] transition"
+                  aria-label={`Increase quantity of ${item.nameEn}`}
+                >
+                  +
+                </button>
+              </div>
+
+              <p className="font-bold w-20 text-right tabular-nums">
+                {item.quantity * item.priceETB} ETB
+              </p>
+
               <button
                 type="button"
                 onClick={() => removeItem(item.id)}
@@ -58,7 +85,7 @@ export default function CartPage() {
             href="/menu"
             className="px-5 py-2.5 rounded-full border border-[var(--line)] font-medium hover:bg-[var(--cream-dark)] transition"
           >
-            Keep browsing
+            Keep adding dishes
           </Link>
           <Link
             href="/checkout"

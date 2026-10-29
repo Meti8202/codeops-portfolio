@@ -58,6 +58,13 @@ export default function CheckoutPage() {
     );
   }
 
+  const cartItemsPayload = items.map((i) => ({
+    id: i.id,
+    nameEn: i.nameEn,
+    quantity: i.quantity,
+    priceETB: i.priceETB,
+  }));
+
   return (
     <div className="max-w-xl">
       <h1 className="text-3xl font-bold mb-8">Checkout</h1>
@@ -91,6 +98,13 @@ export default function CheckoutPage() {
       )}
 
       <form action={formAction} className="space-y-5">
+        <input type="hidden" name="cartTotal" value={totalETB} />
+        <input
+          type="hidden"
+          name="cartItems"
+          value={JSON.stringify(cartItemsPayload)}
+        />
+
         <div>
           <label htmlFor="name" className="block text-sm font-semibold mb-1">
             Name
