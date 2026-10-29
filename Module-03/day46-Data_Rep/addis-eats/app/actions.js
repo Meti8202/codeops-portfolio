@@ -40,6 +40,15 @@ export async function placeOrder(prevState, formData) {
     notes: formData.get("notes")?.toString().trim() || undefined,
   };
 
+  const cartTotal = Number(formData.get("cartTotal")) || 0;
+  const cartItemsRaw = formData.get("cartItems")?.toString() || "[]";
+  let cartItems = [];
+  try {
+    cartItems = JSON.parse(cartItemsRaw);
+  } catch {
+    cartItems = [];
+  }
+
   const parsed = orderSchema.safeParse(raw);
 
   if (!parsed.success) {
@@ -48,11 +57,28 @@ export async function placeOrder(prevState, formData) {
     };
   }
 
+  const itemsSummary =
+    cartItems.length > 0
+      ? cartItems.map((i) => `${i.quantity}× ${i.nameEn}`).join(", ")
+      : undefined;
+
   const order = await createOrder({
     ...parsed.data,
     userId: user.id,
+    total: cartTotal > 0 ? cartTotal : undefined,
+    notes:
+      [parsed.data.notes, itemsSummary].filter(Boolean).join(" | ") ||
+      undefined,
+
+    dishId: parsed.data.dishId || cartItems[0]?.id,
+    quantity:
+      cartItems.reduce((sum, i) => sum + (i.quantity || 0), 0) ||
+      parsed.data.quantity,
   });
+
   revalidatePath("/checkout");
+  revalidatePath("/orders");
+  revalidatePath("/dashboard");
   return { id: order.id, success: true };
 }
 
@@ -66,5 +92,6 @@ export async function cancelOrder(orderId) {
 
   await markCancelled(orderId);
   revalidatePath("/checkout");
+  revalidatePath("/orders");
   return { success: true };
 }
