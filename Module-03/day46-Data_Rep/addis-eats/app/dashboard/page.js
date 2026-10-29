@@ -74,6 +74,7 @@ export default async function DashboardPage() {
         </p>
       ) : (
         <>
+          {/* Revenue by neighbourhood – bar chart + companion table */}
           <section>
             <h2 className="text-lg font-bold mb-1">Revenue by neighbourhood</h2>
             <p className="text-sm text-[var(--muted)] mb-4">
@@ -107,6 +108,7 @@ export default async function DashboardPage() {
             </table>
           </section>
 
+          {/* Orders per day – line chart + companion table (Day 46 requirement) */}
           <section>
             <h2 className="text-lg font-bold mb-1">Orders per day</h2>
             <p className="text-sm text-[var(--muted)] mb-4">
@@ -115,6 +117,29 @@ export default async function DashboardPage() {
             <div className="bg-white border border-[var(--line)] rounded-2xl p-4 shadow-sm">
               <OrdersLineChart data={byDay} />
             </div>
+            <table className="mt-4 w-full text-sm border border-[var(--line)] rounded-xl overflow-hidden bg-white">
+              <caption className="sr-only">
+                Orders per day for the last seven days
+              </caption>
+              <thead className="bg-[var(--cream-dark)] text-left">
+                <tr>
+                  <th scope="col" className="px-4 py-2 font-semibold">
+                    Date
+                  </th>
+                  <th scope="col" className="px-4 py-2 font-semibold">
+                    Orders
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {byDay.map((row) => (
+                  <tr key={row.date} className="border-t border-[var(--line)]">
+                    <td className="px-4 py-2">{row.date}</td>
+                    <td className="px-4 py-2">{row.orders}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </section>
         </>
       )}

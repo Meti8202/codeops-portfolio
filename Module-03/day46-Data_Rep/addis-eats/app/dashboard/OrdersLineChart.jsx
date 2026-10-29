@@ -17,7 +17,11 @@ export default function OrdersLineChart({ data }) {
                     <LineChart data={data}>
                          <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
                          <XAxis dataKey="date" tick={{ fontSize: 11 }} />
-                         <YAxis allowDecimals={false} tick={{ fontSize: 12 }} />
+                         <YAxis
+                              allowDecimals={false}
+                              tick={{ fontSize: 12 }}
+                              domain={[0, "auto"]}
+                         />
                          <Tooltip
                               formatter={(value) => [value, "Orders"]}
                               labelFormatter={(label) => `Date: ${label}`}
