@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getSession } from "@/lib/session";
 import { listAllOrders, listOrdersFor } from "@/lib/db";
 import OrderTable from "./OrderTable";
+import ExportButton from "./ExportButton";
 
 export const metadata = {
   title: "Orders",
@@ -21,9 +22,8 @@ export default async function OrdersPage({ searchParams }) {
   const dir = params.dir === "asc" ? "asc" : "desc";
   const page = Math.max(1, Number(params.page) || 1);
 
-  // Force states for demo: ?state=empty | ?state=error
   if (params.state === "error") {
-    throw new Error("Forced error state for Day 46 demo");
+    throw new Error("Forced error state for demo");
   }
 
   let orders =
@@ -59,14 +59,17 @@ export default async function OrdersPage({ searchParams }) {
             Sorted by {sort} ({dir}) · page {safePage} of {totalPages}
           </p>
         </div>
-        {user.role === "staff" && (
-          <Link
-            href="/dashboard"
-            className="text-sm font-medium text-[var(--brand)] hover:underline"
-          >
-            ← Dashboard
-          </Link>
-        )}
+        <div className="flex items-center gap-3">
+          <ExportButton orders={orders} />
+          {user.role === "staff" && (
+            <Link
+              href="/dashboard"
+              className="text-sm font-medium text-[var(--brand)] hover:underline"
+            >
+              ← Dashboard
+            </Link>
+          )}
+        </div>
       </div>
 
       {total === 0 ? (
