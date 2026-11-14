@@ -7,70 +7,88 @@ $menu = [
           'name' => 'Kitfo',
           'restaurant
           ' => 'Yod Abyssinia',
-          'price' => 1800,
+          'price' => 18000,
           'is_fasting' => false,
      ],
      [
           'name' => 'Tibs',
           'restaurant' => 'Yod Abyssinia',
-          'price' => 2200,
+          'price' => 22000,
           'is_fasting' => false,
      ],
      [
           'name' => 'Shiro',
           'restaurant' => 'Kategna',
-          'price' => 900,
+          'price' => 9000,
           'is_fasting' => true,
      ],
      [
           'name' => 'Beyaynetu',
           'restaurant' => 'Kategna',
-          'price' => 1250,
+          'price' => 12500,
           'is_fasting' => true,
      ],
      [
           'name' => 'Burger',
           'restaurant' => 'Sishu',
-          'price' => 1600,
+          'price' => 16000,
           'is_fasting' => false,
      ],
      [
           'name' => 'Salad',
           'restaurant' => 'Sishu',
-          'price' => 1450,
+          'price' => 14500,
           'is_fasting' => true,
      ],
      [
           'name' => 'Doro Wat',
           'restaurant' => 'Yod Abyssinia',
-          'price' => 2400,
+          'price' => 24000,
           'is_fasting' => false,
      ],
      [
           'name' => 'Pasta',
           'restaurant' => 'Kategna',
-          'price' => 1100,
+          'price' => 11000,
           'is_fasting' => true,
      ],
 ];
 
 function formatPrice(int $price): string
 {
-     return 'ETB ' . number_format($price / 100, 2);
+     return 'ETB ' . number_format($price / 100, 1);
+}
+
+function fastingLabel(bool $isFasting): string
+{
+     return match ($isFasting) {
+          true => 'Fasting',
+          false => 'Non-fasting',
+     };
 }
 
 function formatDish(array $dish): string
 {
      return $dish['name']
           . ' | ' . $dish['restaurant']
-          . ' | ' . formatPrice($dish['price']);
+          . ' | ' . formatPrice($dish['price'])
+          . ' | ' . fastingLabel($dish['is_fasting']);
+}
+
+function isFastingDish(array $dish): bool
+{
+     return $dish['is_fasting'] === true;
 }
 
 echo "Report" . PHP_EOL;
-
 
 $formattedMenu = array_map('formatDish', $menu);
 
 foreach ($formattedMenu as $dish) {
      echo $dish . PHP_EOL;
 }
+
+$fastingDishes = array_filter($menu, 'isFastingDish');
+
+echo PHP_EOL;
+echo "Number of fasting dishes: " . count($fastingDishes) . PHP_EOL;
