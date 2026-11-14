@@ -61,23 +61,28 @@ function formatPrice(int $price): string
 
 function fastingLabel(bool $isFasting): string
 {
-     return match ($isFasting) {
-          true => 'Fasting',
-          false => 'Non-fasting',
-     };
+    return match ($isFasting) {
+        true => 'Fasting',
+        false => 'Non-fasting',
+    };
 }
 
 function formatDish(array $dish): string
 {
-     return $dish['name']
-          . ' | ' . $dish['restaurant']
-          . ' | ' . formatPrice($dish['price'])
-          . ' | ' . fastingLabel($dish['is_fasting']);
+    return $dish['name']
+        . ' | ' . $dish['restaurant']
+        . ' | ' . formatPrice($dish['price'])
+        . ' | ' . fastingLabel($dish['is_fasting']);
 }
 
 function isFastingDish(array $dish): bool
 {
-     return $dish['is_fasting'] === true;
+    return $dish['is_fasting'] === true;
+}
+
+function getDishPrice(array $dish): int
+{
+    return $dish['price'];
 }
 
 echo "Report" . PHP_EOL;
@@ -85,10 +90,47 @@ echo "Report" . PHP_EOL;
 $formattedMenu = array_map('formatDish', $menu);
 
 foreach ($formattedMenu as $dish) {
-     echo $dish . PHP_EOL;
+    echo $dish . PHP_EOL;
 }
+
+
 
 $fastingDishes = array_filter($menu, 'isFastingDish');
 
 echo PHP_EOL;
 echo "Number of fasting dishes: " . count($fastingDishes) . PHP_EOL;
+
+
+
+$prices = array_map('getDishPrice', $menu);
+
+$totalPrice = array_sum($prices);
+
+$averagePrice = intdiv($totalPrice, count($prices));
+
+
+
+
+$sortedMenu = $menu;
+
+usort(
+    $sortedMenu,
+    fn(array $a, array $b): int => $a['price'] <=> $b['price']
+);
+
+
+
+
+$cheapestDish = $sortedMenu[0];
+
+echo PHP_EOL;
+echo "Cheapest" . PHP_EOL;
+
+echo $cheapestDish['name'] . PHP_EOL;
+echo $cheapestDish['restaurant'] . PHP_EOL;
+echo formatPrice($cheapestDish['price']) . PHP_EOL;
+
+echo PHP_EOL;
+echo "Average Menu Price" . PHP_EOL;
+
+echo formatPrice($averagePrice) . PHP_EOL;
