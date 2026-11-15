@@ -1,0 +1,8 @@
+$kind: http-request
+description: ""
+url: http://127.0.0.1:8000/api/menu?area=Bole&budget=25000
+method: GET
+queryParams:
+  area: Bole
+  budget: "25000"
+order: 2000
