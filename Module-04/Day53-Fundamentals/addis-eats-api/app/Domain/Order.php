@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Exceptions\EmptyOrderException;
 use App\Support\FormatsEtb;
 use Illuminate\Support\Collection;
 
@@ -16,7 +17,11 @@ class Order
           public readonly string $area,
           public readonly OrderStatus $status,
           public readonly PricingRule $pricingRule,
-     ) {}
+     ) {
+          if ($this->lines->isEmpty()) {
+               throw new EmptyOrderException();
+          }
+     }
 
      public function subtotal(): int
      {
