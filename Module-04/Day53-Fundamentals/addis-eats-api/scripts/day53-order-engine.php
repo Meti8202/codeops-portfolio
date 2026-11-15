@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
+
+use App\Domain\FreeDeliveryRule;
+use App\Domain\PromoRule;
 use App\Domain\DeliveryRule;
 use App\Domain\Dish;
 use App\Domain\Order;
@@ -16,7 +19,6 @@ use App\Exceptions\OutsideZoneException;
 $deliveryRule = new DeliveryRule();
 $receipt = new Receipt();
 
-// ORDER 1: Inside the delivery zone
 try {
      $orderOne = new Order(
           lines: collect([
@@ -34,14 +36,14 @@ try {
           pricingRule: $deliveryRule,
      );
 
-     echo "ORDER 1 - RECEIPT\n";
+     echo "order 1 receipt: ";
      print_r($receipt->generate($orderOne)->all());
 } catch (OutsideZoneException | EmptyOrderException $exception) {
-     echo "ORDER 1 ERROR: " . $exception->getMessage() . PHP_EOL;
+     echo "Order 1 error: " . $exception->getMessage() . PHP_EOL;
 }
 
 
-// ORDER 2: Outside the delivery zone
+// outside the delivery zone
 try {
      $orderTwo = new Order(
           lines: collect([
@@ -55,14 +57,14 @@ try {
           pricingRule: $deliveryRule,
      );
 
-     echo "\nORDER 2 - RECEIPT\n";
+     echo "\norder 2 receipt: ";
      print_r($receipt->generate($orderTwo)->all());
 } catch (OutsideZoneException | EmptyOrderException $exception) {
-     echo "ORDER 2 ERROR: " . $exception->getMessage() . PHP_EOL;
+     echo "Order 2 error: " . $exception->getMessage() . PHP_EOL;
 }
 
 
-// EMPTY ORDER: Demonstrate EmptyOrderException
+// empty orders
 try {
      $emptyOrder = new Order(
           lines: collect([]),
@@ -71,5 +73,34 @@ try {
           pricingRule: $deliveryRule,
      );
 } catch (OutsideZoneException | EmptyOrderException $exception) {
-     echo "\nEMPTY ORDER ERROR: " . $exception->getMessage() . PHP_EOL;
+     echo "\nempty order error: " . $exception->getMessage() . PHP_EOL;
+}
+
+
+echo "Pricing rule check";
+
+$pricingRules = [
+     'DeliveryRule' => $deliveryRule,
+     'PromoRule' => new PromoRule($deliveryRule),
+     'FreeDeliveryRule' => new FreeDeliveryRule(),
+];
+
+foreach ($pricingRules as $ruleName => $pricingRule) {
+     $testOrder = new Order(
+          lines: collect([
+               new OrderLine(
+                    new Dish('Shiro', 'Yod Abyssinia', 18000, true),
+                    1
+               ),
+          ]),
+          area: 'Bole',
+          status: OrderStatus::Placed,
+          pricingRule: $pricingRule,
+     );
+
+     $fee = $testOrder->deliveryFee();
+
+     echo $ruleName . ': '
+          . number_format($fee / 100, 2)
+          . " ETB\n";
 }
