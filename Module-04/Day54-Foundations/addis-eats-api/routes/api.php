@@ -58,12 +58,4 @@ Route::get('/menu/{area?}', function (Request $request, ?string $area = 'Bole') 
     }
 });
 
-Route::get('/dishes', [DishController::class, 'index']);
-
-Route::post('/dishes', [DishController::class, 'store']);
-
-Route::get('/dishes/{id}', function (string $id) {
-    return ['dish_id' => $id];
-})
-    ->whereNumber('id')
-    ->name('dishes.show');
+Route::apiResource('dishes', DishController::class);

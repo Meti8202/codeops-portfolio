@@ -31,7 +31,10 @@ class DishController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return [
+            'message' => 'Dish details',
+            'dish_id' => $id,
+        ];
     }
 
     /**
@@ -39,7 +42,10 @@ class DishController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return [
+            'message' => 'Dish updated',
+            'dish_id' => $id,
+        ];
     }
 
     /**
@@ -47,6 +53,6 @@ class DishController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return response()->noContent();
     }
 }
