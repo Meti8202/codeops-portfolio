@@ -6,6 +6,8 @@ use App\Exceptions\OutsideZoneException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DishController;
+
 Route::get('/health', function () {
     return response()->json([
         'status' => 'ok',
@@ -56,13 +58,9 @@ Route::get('/menu/{area?}', function (Request $request, ?string $area = 'Bole') 
     }
 });
 
-Route::get('/dishes', function () {
-    return ['message' => 'List of dishes'];
-});
+Route::get('/dishes', [DishController::class, 'index']);
 
-Route::post('/dishes', function () {
-    return ['message' => 'Dish submitted'];
-});
+Route::post('/dishes', [DishController::class, 'store']);
 
 Route::get('/dishes/{id}', function (string $id) {
     return ['dish_id' => $id];
