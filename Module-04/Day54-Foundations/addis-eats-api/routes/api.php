@@ -23,7 +23,7 @@ Route::get('/areas', function () {
     ]);
 });
 
-Route::get('/menu', function (Request $request) {
+Route::get('/menu/{area?}', function (Request $request, ?string $area = 'Bole') {
     $dishes = collect([
         new Dish('Doro Wat', 'Yod Abyssinia', 42000, false),
         new Dish('Shiro', 'Yod Abyssinia', 18000, true),
@@ -39,7 +39,7 @@ Route::get('/menu', function (Request $request) {
         new Dish('Chechebsa', 'Sishu', 19000, true),
     ]);
 
-    $area = (string) $request->query('area', 'Bole');
+    $area = (string) $request->query('area', $area);
     $budget = (int) $request->query('budget', 25000);
 
     try {
@@ -55,7 +55,6 @@ Route::get('/menu', function (Request $request) {
         ], 422);
     }
 });
-
 
 Route::get('/dishes', function () {
     return ['message' => 'List of dishes'];
