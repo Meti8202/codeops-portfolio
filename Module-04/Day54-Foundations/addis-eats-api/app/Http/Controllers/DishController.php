@@ -9,10 +9,15 @@ class DishController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $area = $request->query('area', 'Bole');
+        $budget = (int) $request->query('budget', 100000);
+
         return [
             'message' => 'List of dishes',
+            'area' => $area,
+            'budget' => $budget,
         ];
     }
 
@@ -21,9 +26,14 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        return [
+        $name = $request->input('name');
+        $restaurant = $request->input('restaurant');
+
+        return response()->json([
             'message' => 'Dish submitted',
-        ];
+            'name' => $name,
+            'restaurant' => $restaurant,
+        ], 201);
     }
 
     /**
