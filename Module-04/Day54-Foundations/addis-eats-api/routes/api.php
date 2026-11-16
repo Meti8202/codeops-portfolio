@@ -55,3 +55,18 @@ Route::get('/menu', function (Request $request) {
         ], 422);
     }
 });
+
+
+Route::get('/dishes', function () {
+    return ['message' => 'List of dishes'];
+});
+
+Route::post('/dishes', function () {
+    return ['message' => 'Dish submitted'];
+});
+
+Route::get('/dishes/{id}', function (string $id) {
+    return ['dish_id' => $id];
+})
+    ->whereNumber('id')
+    ->name('dishes.show');
