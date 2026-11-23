@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\DishController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\V1\DishController;
+use App\Http\Controllers\Api\V1\RestaurantController;
+use App\Http\Controllers\Api\V1\RestaurantDishController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\RestaurantController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/health', function () {
     return response()->json([
@@ -17,23 +19,24 @@ Route::get('/areas', function () {
     return response()->json(config('addiseats.zones'));
 });
 
-Route::prefix('v1')->group(function () {
-    Route::apiResource('dishes', DishController::class);
+Route::prefix('v1')->name('v1.')->group(function () {
+    Route::apiResource('dishes', DishController::class)
+        ->where(['dish' => '[0-9]+']);
 
-    Route::get('/menu', [
-        \App\Http\Controllers\MenuController::class,
-        'index',
-    ]);
-
-
+    Route::get('/menu', [MenuController::class, 'index']);
 
     Route::apiResource('orders', OrderController::class)
-        ->only(['store', 'show']);
+        ->only(['store', 'show'])
+        ->where(['order' => '[0-9]+']);
 
-    Route::get('/restaurants', [RestaurantController::class, 'index']);
+    Route::apiResource('restaurants', RestaurantController::class)
+        ->parameters(['restaurants' => 'restaurant'])
+        ->where(['restaurant' => '[A-Za-z0-9-]+']);
 
-    Route::get('/restaurants/{restaurant:slug}', [
-        RestaurantController::class,
-        'show',
-    ]);
+    Route::apiResource('restaurants.dishes', RestaurantDishController::class)
+        ->shallow()
+        ->where([
+            'restaurant' => '[A-Za-z0-9-]+',
+            'dish' => '[0-9]+',
+        ]);
 });

@@ -14,6 +14,11 @@ class RestaurantResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'area' => $this->area,
+            'phone' => $this->phone,
+            'dish_count' => $this->whenCounted('dishes'),
+            'dishes' => DishResource::collection(
+                $this->whenLoaded('dishes')
+            ),
         ];
     }
 }
