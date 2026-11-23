@@ -1,0 +1,52 @@
+
+@baseUrl = http://127.0.0.1:8000/api/v1
+
+### List dishes
+GET {{baseUrl}}/dishes
+Accept: application/json
+
+### Filter dishes
+GET {{baseUrl}}/dishes?area=Bole&max_price=25000&fasting=1
+Accept: application/json
+
+### Show one dish
+GET {{baseUrl}}/dishes/1
+Accept: application/json
+
+### Create a dish
+POST {{baseUrl}}/dishes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Special Kitfo",
+  "restaurant": "Kategna",
+  "price": 38000,
+  "is_fasting": false,
+  "area": "Bole"
+}
+
+### Update a dish
+PATCH {{baseUrl}}/dishes/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "price": 19500
+}
+
+### Delete a dish
+DELETE {{baseUrl}}/dishes/1
+Accept: application/json
+
+### Missing dish
+GET {{baseUrl}}/dishes/9999
+Accept: application/json
+
+### List restaurants
+GET {{baseUrl}}/restaurants
+Accept: application/json
+
+### Show restaurant by slug
+GET {{baseUrl}}/restaurants/kategna
+Accept: application/json
