@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DishController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 Route::get('/health', function () {
     return response()->json([
@@ -22,4 +23,9 @@ Route::prefix('v1')->group(function () {
         \App\Http\Controllers\MenuController::class,
         'index',
     ]);
+
+
+
+    Route::apiResource('orders', OrderController::class)
+        ->only(['store', 'show']);
 });
