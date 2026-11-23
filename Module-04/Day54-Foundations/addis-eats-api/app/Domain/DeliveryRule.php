@@ -8,16 +8,11 @@ use App\Exceptions\OutsideZoneException;
 
 class DeliveryRule implements PricingRule
 {
-     private const ZONES = [
-          'Bole',
-          'Kazanchis',
-          'Piassa',
-          'Megenagna',
-     ];
-
      public function feeFor(string $area): int
      {
-          if (! in_array($area, self::ZONES, true)) {
+          $zones = config('addiseats.zones', []);
+
+          if (! in_array($area, $zones, true)) {
                throw new OutsideZoneException($area);
           }
 

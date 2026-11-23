@@ -12,15 +12,15 @@ class MenuService
 {
      use FormatsEtb;
 
-     private const ZONES = ['Bole', 'Kazanchis', 'Piassa', 'Megenagna'];
-
      public function __construct(
           private readonly Collection $dishes,
      ) {}
 
      public function affordableIn(string $area, int $budget): Collection
      {
-          if (! in_array($area, self::ZONES, true)) {
+          $zones = config('addiseats.zones', []);
+
+          if (! in_array($area, $zones, true)) {
                throw new OutsideZoneException($area);
           }
 
