@@ -16,8 +16,10 @@ class DishFactory extends Factory
      * @return array<string, mixed>
      */
 
+
     public function definition(): array
     {
+
         return [
             'name' => fake()->randomElement([
                 'Doro Wat',
@@ -34,6 +36,7 @@ class DishFactory extends Factory
             'price' => fake()->numberBetween(12000, 60000),
             'is_fasting' => fake()->boolean(),
             'area' => fake()->randomElement(config('addiseats.zones')),
+            'cost_price' => fake()->numberBetween(5000, 30000),
         ];
     }
 }

@@ -2,65 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Resources\DishResource;
 use App\Models\Dish;
+use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        $area = $request->query('area', 'Bole');
-        $budget = (int) $request->query('budget', 100000);
+        $dishes = Dish::query()
+            ->when(
+                $request->filled('area'),
+                fn($query) => $query->where(
+                    'area',
+                    $request->query('area')
+                )
+            )
+            ->when(
+                $request->filled('max_price'),
+                fn($query) => $query->where(
+                    'price',
+                    '<=',
+                    (int) $request->query('max_price')
+                )
+            )
+            ->when(
+                $request->boolean('fasting'),
+                fn($query) => $query->where('is_fasting', true)
+            )
+            ->orderBy('price')
+            ->get();
 
-        return [
-            'message' => 'List of dishes',
-            'area' => $area,
-            'budget' => $budget,
-        ];
+        return DishResource::collection($dishes);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        $restaurant = $request->input('restaurant');
+        $validated = $request->validate([
+            'name' => ['required', 'string'],
+            'restaurant' => ['required', 'string'],
+            'price' => ['required', 'integer', 'min:0'],
+            'is_fasting' => ['required', 'boolean'],
+            'area' => ['required', 'string'],
+        ]);
 
-        return response()->json([
-            'message' => 'Dish submitted',
-            'name' => $name,
-            'restaurant' => $restaurant,
-        ], 201);
+        $dish = Dish::create($validated);
+
+        return (new DishResource($dish))
+            ->response()
+            ->setStatusCode(201)
+            ->header('Location', route('dishes.show', $dish));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Dish $dish)
     {
-        return response()->json($dish);
+        return new DishResource($dish);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Dish $dish)
     {
-        return [
-            'message' => 'Dish updated',
-            'dish_id' => $id,
-        ];
+        $validated = $request->validate([
+            'name' => ['sometimes', 'required', 'string'],
+            'restaurant' => ['sometimes', 'required', 'string'],
+            'price' => ['sometimes', 'required', 'integer', 'min:0'],
+            'is_fasting' => ['sometimes', 'required', 'boolean'],
+            'area' => ['sometimes', 'required', 'string'],
+        ]);
+
+        $dish->update($validated);
+
+        return new DishResource($dish);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Dish $dish)
     {
+        $dish->delete();
+
         return response()->noContent();
     }
 }

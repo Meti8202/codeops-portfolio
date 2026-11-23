@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://127.0.0.1:8000/api/v1/dishes
+description: ""
+url: http://127.0.0.1:8000/api/v1/dishes
+method: POST
+headers:
+  Accept: application/json
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"Special Kitfo\",\r
+
+    \    \"restaurant\": \"Kategna\",\r
+
+    \    \"price\": 38000,\r
+
+    \    \"is_fasting\": false,\r
+
+    \    \"area\": \"Bole\"\r
+
+    }"
+order: 1000
