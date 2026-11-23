@@ -15,6 +15,7 @@ class Dish extends Model
         'price',
         'is_fasting',
         'area',
+        'cost_price',
     ];
 
     protected function casts(): array
