@@ -42,3 +42,11 @@ Accept: application/json
 ### Missing dish
 GET {{baseUrl}}/dishes/9999
 Accept: application/json
+
+### List restaurants
+GET {{baseUrl}}/restaurants
+Accept: application/json
+
+### Show restaurant by slug
+GET {{baseUrl}}/restaurants/kategna
+Accept: application/json

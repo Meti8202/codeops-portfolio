@@ -3,6 +3,7 @@
 use App\Http\Controllers\DishController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RestaurantController;
 
 Route::get('/health', function () {
     return response()->json([
@@ -28,4 +29,11 @@ Route::prefix('v1')->group(function () {
 
     Route::apiResource('orders', OrderController::class)
         ->only(['store', 'show']);
+
+    Route::get('/restaurants', [RestaurantController::class, 'index']);
+
+    Route::get('/restaurants/{restaurant:slug}', [
+        RestaurantController::class,
+        'show',
+    ]);
 });
