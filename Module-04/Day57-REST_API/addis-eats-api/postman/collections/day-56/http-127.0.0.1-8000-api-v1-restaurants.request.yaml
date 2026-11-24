@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://127.0.0.1:8000/api/v1/restaurants
+description: ""
+url: http://127.0.0.1:8000/api/v1/restaurants/yod-abyssinia
+method: GET
+order: 1000
