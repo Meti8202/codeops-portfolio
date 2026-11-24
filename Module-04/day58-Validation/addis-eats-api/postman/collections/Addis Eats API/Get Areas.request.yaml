@@ -1,0 +1,5 @@
+$kind: http-request
+description: Get Areas
+url: http://127.0.0.1:8000/api/areas
+method: GET
+order: 1000
