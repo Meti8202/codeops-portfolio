@@ -10,20 +10,16 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
-    private const SORTABLE = [
-        'name',
-        'area',
-        'created_at',
-    ];
+    private const SORTABLE = ['name', 'area', 'created_at'];
+    private const PER_PAGE_DEFAULT = 15;
+    private const PER_PAGE_MAX = 100;
 
     private function sortColumn(Request $request): string
     {
         $sort = $request->string('sort', 'name')->toString();
         $column = ltrim($sort, '-');
 
-        return in_array($column, self::SORTABLE, true)
-            ? $column
-            : 'name';
+        return in_array($column, self::SORTABLE, true) ? $column : 'name';
     }
 
     private function sortDirection(Request $request): string
@@ -36,14 +32,16 @@ class RestaurantController extends Controller
 
     public function index(Request $request)
     {
+        $perPage = min(
+            $request->integer('per_page', self::PER_PAGE_DEFAULT) ?: self::PER_PAGE_DEFAULT,
+            self::PER_PAGE_MAX,
+        );
+
         $restaurants = Restaurant::query()
             ->withCount('dishes')
             ->when(
                 $request->filled('area'),
-                fn($q) => $q->where(
-                    'area',
-                    $request->query('area')
-                )
+                fn($q) => $q->where('area', $request->query('area'))
             )
             ->when(
                 $request->query('include') === 'dishes',
@@ -53,12 +51,10 @@ class RestaurantController extends Controller
                 $this->sortColumn($request),
                 $this->sortDirection($request)
             )
-            ->get();
+            ->paginate($perPage)
+            ->withQueryString();
 
-        return ApiResponse::ok(
-            RestaurantResource::collection($restaurants),
-            ['count' => $restaurants->count()]
-        );
+        return RestaurantResource::collection($restaurants);
     }
 
     public function show(Request $request, Restaurant $restaurant)
@@ -69,9 +65,7 @@ class RestaurantController extends Controller
             $restaurant->load('dishes');
         }
 
-        return ApiResponse::ok(
-            new RestaurantResource($restaurant)
-        );
+        return ApiResponse::ok(new RestaurantResource($restaurant));
     }
 
     public function store(Request $request)
@@ -110,9 +104,7 @@ class RestaurantController extends Controller
         $restaurant->update($validated);
         $restaurant->loadCount('dishes');
 
-        return ApiResponse::ok(
-            new RestaurantResource($restaurant)
-        );
+        return ApiResponse::ok(new RestaurantResource($restaurant));
     }
 
     public function destroy(Restaurant $restaurant)
