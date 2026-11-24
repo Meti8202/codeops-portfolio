@@ -17,6 +17,22 @@ class OrderController extends Controller
           private readonly PricingRule $pricingRule,
      ) {}
 
+     public function index(Request $request)
+     {
+          $perPage = min(
+               $request->integer('per_page', 15) ?: 15,
+               100,
+          );
+
+          $orders = EloquentOrder::query()
+               ->orderBy('created_at', 'desc')
+               ->orderBy('id', 'desc')
+               ->cursorPaginate($perPage)
+               ->withQueryString();
+
+          return response()->json($orders);
+     }
+
      public function store(Request $request)
      {
           $validated = $request->validate([
