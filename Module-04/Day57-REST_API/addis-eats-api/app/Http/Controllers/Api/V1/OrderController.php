@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+
+     /**
+      * Cursor pagination is chosen here because:
+      * - Order history is append-only (new orders appear at the top).
+      * - Mobile clients use infinite scroll, not page numbers.
+      * - Results remain stable even if new orders are inserted mid-paging.
+      * - Constant O(1) performance regardless of dataset depth.
+      */
      public function __construct(
           private readonly PricingRule $pricingRule,
      ) {}
