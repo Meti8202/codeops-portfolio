@@ -119,6 +119,6 @@ class RestaurantController extends Controller
     {
         $restaurant->delete();
 
-        return response()->noContent();
+        return ApiResponse::noContent();
     }
 }
