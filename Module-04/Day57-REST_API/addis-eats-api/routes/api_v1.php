@@ -13,7 +13,7 @@ Route::apiResource('dishes', DishController::class)
 Route::get('/menu', [MenuController::class, 'index']);
 
 Route::apiResource('orders', OrderController::class)
-     ->only(['store', 'show'])
+     ->only(['index', 'store', 'show'])
      ->where(['order' => '[0-9]+']);
 
 Route::apiResource('restaurants', RestaurantController::class)
