@@ -35,4 +35,9 @@ class ApiResponse
             'error' => compact('code', 'msg', 'meta'),
         ], $status);
     }
+
+    public static function noContent(): \Illuminate\Http\Response
+    {
+        return response()->noContent();
+    }
 }
