@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Api\V1\DishController;
+use App\Http\Controllers\Api\V1\MenuController;
+use App\Http\Controllers\Api\V1\OrderController;
 use App\Http\Controllers\Api\V1\RestaurantController;
 use App\Http\Controllers\Api\V1\RestaurantDishController;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/health', function () {
