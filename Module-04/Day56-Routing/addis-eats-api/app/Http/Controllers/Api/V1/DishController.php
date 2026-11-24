@@ -10,33 +10,27 @@ use Illuminate\Http\Request;
 
 class DishController extends Controller
 {
-    private const SORTABLE = [
-        'name',
-        'price',
-        'created_at',
-    ];
-
+    private const SORTABLE = ['name', 'price', 'created_at'];
 
     public function index(Request $request)
     {
+        $sort = $request->string('sort', 'price')->toString();
+        $direction = str_starts_with($sort, '-') ? 'desc' : 'asc';
+        $column = ltrim($sort, '-');
+
+        if (! in_array($column, self::SORTABLE, true)) {
+            $column = 'price';
+        }
+
         $dishes = Dish::query()
+            ->inArea($request->query('area'))
+            ->under($request->integer('max_price'))
+            ->fasting($request->boolean('fasting'))
             ->when(
-                $request->filled('area'),
-                fn($query) => $query->where('area', $request->query('area'))
+                $request->filled('q'),
+                fn($q) => $q->where('name', 'like', '%' . $request->query('q') . '%')
             )
-            ->when(
-                $request->filled('max_price'),
-                fn($query) => $query->where(
-                    'price',
-                    '<=',
-                    (int) $request->query('max_price')
-                )
-            )
-            ->when(
-                $request->boolean('fasting'),
-                fn($query) => $query->where('is_fasting', true)
-            )
-            ->orderBy('price')
+            ->orderBy($column, $direction)
             ->get();
 
         return ApiResponse::ok(
@@ -44,7 +38,6 @@ class DishController extends Controller
             ['count' => $dishes->count()]
         );
     }
-
 
     public function store(Request $request)
     {
@@ -88,6 +81,6 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        return response()->noContent();
+        return ApiResponse::noContent();
     }
 }
