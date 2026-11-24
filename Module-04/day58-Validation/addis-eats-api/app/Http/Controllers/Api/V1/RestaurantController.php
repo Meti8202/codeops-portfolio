@@ -7,6 +7,8 @@ use App\Http\Resources\RestaurantResource;
 use App\Http\Responses\ApiResponse;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Requests\V1\StoreRestaurantRequest;
+use App\Http\Requests\V1\UpdateRestaurantRequest;
 
 class RestaurantController extends Controller
 {
@@ -68,42 +70,17 @@ class RestaurantController extends Controller
         return ApiResponse::ok(new RestaurantResource($restaurant));
     }
 
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'alpha_dash', 'unique:restaurants,slug'],
-            'area' => ['required', 'string'],
-            'phone' => ['nullable', 'string'],
-        ]);
-
-        $restaurant = Restaurant::create($validated);
+        $restaurant = Restaurant::create($request->validated());
         $restaurant->loadCount('dishes');
-
-        return ApiResponse::created(
-            new RestaurantResource($restaurant),
-            route('v1.restaurants.show', $restaurant)
-        );
+        return ApiResponse::created(new RestaurantResource($restaurant), route('v1.restaurants.show', $restaurant));
     }
 
-    public function update(Request $request, Restaurant $restaurant)
+    public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        $validated = $request->validate([
-            'name' => ['sometimes', 'required', 'string'],
-            'slug' => [
-                'sometimes',
-                'required',
-                'string',
-                'alpha_dash',
-                'unique:restaurants,slug,' . $restaurant->id,
-            ],
-            'area' => ['sometimes', 'required', 'string'],
-            'phone' => ['sometimes', 'nullable', 'string'],
-        ]);
-
-        $restaurant->update($validated);
+        $restaurant->update($request->validated());
         $restaurant->loadCount('dishes');
-
         return ApiResponse::ok(new RestaurantResource($restaurant));
     }
 

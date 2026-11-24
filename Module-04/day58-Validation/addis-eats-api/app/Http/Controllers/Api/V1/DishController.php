@@ -7,6 +7,8 @@ use App\Http\Resources\DishResource;
 use App\Http\Responses\ApiResponse;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use App\Http\Requests\V1\StoreDishRequest;
+use App\Http\Requests\V1\UpdateDishRequest;
 
 class DishController extends Controller
 {
@@ -44,22 +46,16 @@ class DishController extends Controller
         return DishResource::collection($dishes);
     }
 
-    public function store(Request $request)
+    public function store(StoreDishRequest $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string'],
-            'restaurant' => ['required', 'string'],
-            'price' => ['required', 'integer', 'min:0'],
-            'is_fasting' => ['required', 'boolean'],
-            'area' => ['required', 'string'],
-        ]);
+        $dish = Dish::create($request->validated());
+        return ApiResponse::created(new DishResource($dish), route('v1.dishes.show', $dish));
+    }
 
-        $dish = Dish::create($validated);
-
-        return ApiResponse::created(
-            new DishResource($dish),
-            route('v1.dishes.show', $dish)
-        );
+    public function update(UpdateDishRequest $request, Dish $dish)
+    {
+        $dish->update($request->validated());
+        return ApiResponse::ok(new DishResource($dish));
     }
 
     public function show(Dish $dish)
@@ -67,20 +63,6 @@ class DishController extends Controller
         return ApiResponse::ok(new DishResource($dish));
     }
 
-    public function update(Request $request, Dish $dish)
-    {
-        $validated = $request->validate([
-            'name' => ['sometimes', 'required', 'string'],
-            'restaurant' => ['sometimes', 'required', 'string'],
-            'price' => ['sometimes', 'required', 'integer', 'min:0'],
-            'is_fasting' => ['sometimes', 'required', 'boolean'],
-            'area' => ['sometimes', 'required', 'string'],
-        ]);
-
-        $dish->update($validated);
-
-        return ApiResponse::ok(new DishResource($dish));
-    }
 
     public function destroy(Dish $dish)
     {

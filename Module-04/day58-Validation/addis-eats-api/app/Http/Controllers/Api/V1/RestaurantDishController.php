@@ -8,6 +8,9 @@ use App\Http\Responses\ApiResponse;
 use App\Models\Dish;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Requests\V1\StoreDishRequest;
+use App\Http\Requests\V1\UpdateDishRequest;
+
 
 class RestaurantDishController extends Controller
 {
@@ -45,24 +48,20 @@ class RestaurantDishController extends Controller
         return DishResource::collection($dishes);
     }
 
-    public function store(Request $request, Restaurant $restaurant)
+    public function store(StoreDishRequest $request, Restaurant $restaurant)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string'],
-            'price' => ['required', 'integer', 'min:0'],
-            'is_fasting' => ['required', 'boolean'],
-            'area' => ['required', 'string'],
-        ]);
-
+        $validated = $request->validated();
         $dish = $restaurant->dishes()->create([
             ...$validated,
             'restaurant' => $restaurant->name,
         ]);
+        return ApiResponse::created(new DishResource($dish), route('v1.dishes.show', $dish));
+    }
 
-        return ApiResponse::created(
-            new DishResource($dish),
-            route('v1.dishes.show', $dish)
-        );
+    public function update(UpdateDishRequest $request, Dish $dish)
+    {
+        $dish->update($request->validated());
+        return ApiResponse::ok(new DishResource($dish));
     }
 
     public function show(Dish $dish)
@@ -70,19 +69,9 @@ class RestaurantDishController extends Controller
         return ApiResponse::ok(new DishResource($dish));
     }
 
-    public function update(Request $request, Dish $dish)
-    {
-        $validated = $request->validate([
-            'name' => ['sometimes', 'required', 'string'],
-            'price' => ['sometimes', 'required', 'integer', 'min:0'],
-            'is_fasting' => ['sometimes', 'required', 'boolean'],
-            'area' => ['sometimes', 'required', 'string'],
-        ]);
 
-        $dish->update($validated);
 
-        return ApiResponse::ok(new DishResource($dish));
-    }
+
 
     public function destroy(Dish $dish)
     {

@@ -10,6 +10,7 @@ use App\Models\Dish;
 use App\Models\Order as EloquentOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\V1\StoreOrderRequest;
 
 class OrderController extends Controller
 {
@@ -41,8 +42,9 @@ class OrderController extends Controller
           return response()->json($orders);
      }
 
-     public function store(Request $request)
+     public function store(StoreOrderRequest $request)
      {
+          $validated = $request->validated();
           $validated = $request->validate([
                'area' => ['required', 'string'],
                'items' => ['required', 'array', 'min:1'],
