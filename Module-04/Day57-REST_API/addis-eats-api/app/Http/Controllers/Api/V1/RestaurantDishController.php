@@ -11,15 +11,24 @@ use Illuminate\Http\Request;
 
 class RestaurantDishController extends Controller
 {
+    private const SORTABLE = ['name', 'price', 'created_at'];
+    private const PER_PAGE_DEFAULT = 15;
+    private const PER_PAGE_MAX = 100;
+
     public function index(Request $request, Restaurant $restaurant)
     {
         $sort = $request->string('sort', 'price')->toString();
         $direction = str_starts_with($sort, '-') ? 'desc' : 'asc';
         $column = ltrim($sort, '-');
 
-        if (! in_array($column, ['name', 'price', 'created_at'], true)) {
+        if (! in_array($column, self::SORTABLE, true)) {
             $column = 'price';
         }
+
+        $perPage = min(
+            $request->integer('per_page', self::PER_PAGE_DEFAULT) ?: self::PER_PAGE_DEFAULT,
+            self::PER_PAGE_MAX,
+        );
 
         $dishes = $restaurant->dishes()
             ->inArea($request->query('area'))
@@ -27,19 +36,13 @@ class RestaurantDishController extends Controller
             ->fasting($request->boolean('fasting'))
             ->when(
                 $request->filled('q'),
-                fn($q) => $q->where(
-                    'name',
-                    'like',
-                    '%' . $request->query('q') . '%'
-                )
+                fn($q) => $q->where('name', 'like', '%' . $request->query('q') . '%')
             )
             ->orderBy($column, $direction)
-            ->get();
+            ->paginate($perPage)
+            ->withQueryString();
 
-        return ApiResponse::ok(
-            DishResource::collection($dishes),
-            ['count' => $dishes->count()]
-        );
+        return DishResource::collection($dishes);
     }
 
     public function store(Request $request, Restaurant $restaurant)
